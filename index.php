@@ -5,12 +5,10 @@ include('header.php');
 
 <main class="main">
 
-<!-- About Section -->
-<!-- <section id="about" class="about section grn">
-
-  <div class="container">
-    <div class="row align-items-center justify-content-between">
-      <div class="col-lg-7 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="400">
+<section id="about" class="about section grn">
+  <div class="container-fluid">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-10" data-aos="fade-up" data-aos-delay="400">
         <div class="swiper init-swiper">
           <script type="application/json" class="swiper-config">
             {
@@ -38,78 +36,56 @@ include('header.php');
             }
           </script>
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="assets/img/img_h_6.jpg" alt="Image" class="img-fluid">
+            <!-- Slide 1 -->
+            <div class="swiper-slide d-flex align-items-center">
+              <div class="slide-image" style="flex: 1.5;">
+                <img src="assets/img/Slider/all.png" alt="Image" class="img-fluid">
+              </div>
+              <div class="slide-content ml-4" style="flex: 1;">
+                <h2>AXE</h2>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia...</p>
+              </div>
             </div>
-            <div class="swiper-slide">
-              <img src="assets/img/img_h_7.jpg" alt="Image" class="img-fluid">
+            <!-- Slide 2 -->
+            <div class="swiper-slide d-flex align-items-center">
+              <div class="slide-image" style="flex: 1.5;">
+                <img src="assets/img/Slider/stives.png" alt="Image" class="img-fluid">
+              </div>
+              <div class="slide-content ml-4" style="flex: 1;">
+                <h2>Lorem Ipsum Dolor Sit Amet</h2>
+                <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean...</p>
+              </div>
             </div>
-            <div class="swiper-slide">
-              <img src="assets/img/img_h_8.jpg" alt="Image" class="img-fluid">
+            <!-- Slide 3 -->
+            <div class="swiper-slide d-flex align-items-center">
+              <div class="slide-image" style="flex: 1.5;">
+                <img src="assets/img/Slider/axe.png" alt="Image" class="img-fluid">
+              </div>
+              <div class="slide-content ml-4" style="flex: 1;">
+                <h2>Ut Enim ad Minim Veniam</h2>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia...</p>
+              </div>
             </div>
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-        <div class="col-lg-4 order-lg-1">
-            <h1 class="mb-4" data-aos="fade-up">
-            Excepteur sint occaecat cupidatat non proident
-            </h1>
-            <p data-aos="fade-up">
-            Far far away, behind the word mountains, far from the countries
-            Vokalia and Consonantia, there live the blind texts. Separated they
-            live in Bookmarksgrove right at the coast of the Semantics, a large
-            language ocean.
-            </p>
-        </div>
-    </div>
-  </div>
-</section> -->
-
-<section id="about" class="about section grn">
-
-  <div class="container">
-    <div class="row align-items-center justify-content-between">
-      <!-- Image Swiper -->
-      <div class="col-lg-7 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="400">
-        <div class="swiper image-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="assets/img/img_h_6.jpg" alt="Image 1" class="img-fluid">
-            </div>
-            <div class="swiper-slide">
-              <img src="assets/img/img_h_7.jpg" alt="Image 2" class="img-fluid">
-            </div>
-            <div class="swiper-slide">
-              <img src="assets/img/img_h_8.jpg" alt="Image 3" class="img-fluid">
+            <!-- Slide 3 -->
+            <div class="swiper-slide d-flex align-items-center">
+              <div class="slide-image" style="flex: 1.5;">
+                <img src="assets/img/Slider/bru.png" alt="Image" class="img-fluid">
+              </div>
+              <div class="slide-content ml-4" style="flex: 1;">
+                <h2>Ut Enim ad Minim Veniam</h2>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia...</p>
+              </div>
             </div>
           </div>
-          <div class="swiper-pagination"></div>
-        </div>
-      </div>
-
-      <!-- Text Swiper synchronized with the image swiper -->
-      <div class="col-lg-4 order-lg-1">
-        <div class="swiper text-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <h1 class="mb-4">Excepteur sint occaecat cupidatat non proident</h1>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia...</p>
-            </div>
-            <div class="swiper-slide">
-              <h1 class="mb-4">A second caption for the next image</h1>
-              <p>A small river named Duden flows by their place...</p>
-            </div>
-            <div class="swiper-slide">
-              <h1 class="mb-4">Third image with its own caption</h1>
-              <p>The Big Oxmox advised her not to do so...</p>
-            </div>
-          </div>
+          <!-- Centered pagination dots -->
+             <div class="swiper-pagination"></div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
 
 
 <!-- About 2 Section -->
@@ -153,49 +129,48 @@ include('header.php');
 
 <!-- Services Section -->
 <section id="services" class="services section light-background">
-
   <div class="container">
     <div class="row gy-4 justify-content-center">
-
+      <!-- Card 1 -->
       <div class="col-lg-3">
         <div class="services-item" data-aos="fade-up">
           <div class="services-icon">
             <i class="bi bi-bullseye"></i>
           </div>
           <div>
-            <h3>Technology</h3>
-            <p>Separated they live in Bookmarksgrove right at the coast</p>
+            <h3>No Copy Products</h3>
+            <p>All Products are imported from unilever global brands from various countries.</p>
           </div>
         </div>
       </div>
-
+      <!-- Card 2 -->
       <div class="col-lg-3">
         <div class="services-item" data-aos="fade-up" data-aos-delay="100">
           <div class="services-icon">
             <i class="bi bi-command"></i>
           </div>
           <div>
-            <h3>Web Design</h3>
-            <p>Separated they live in Bookmarksgrove right at the coast</p>
+            <h3>Dedicated Team</h3>
+            <p>We provide exceptional service and products at competitive prices, supporting ethical business practices.</p>
           </div>
         </div>
       </div>
-
+      <!-- Card 3 -->
       <div class="col-lg-3">
         <div class="services-item" data-aos="fade-up" data-aos-delay="200">
           <div class="services-icon">
             <i class="bi bi-bar-chart"></i>
           </div>
           <div>
-            <h3>Branding</h3>
-            <p>Separated they live in Bookmarksgrove right at the coast</p>
+            <h3>24/7 Available</h3>
+            <p>We are available at all times for our clients' needs.</p>
           </div>
         </div>
       </div>
-
     </div>
   </div>
-</section><!-- /Services Section -->
+</section>
+
 
 <!-- Stats Section -->
 <section id="stats" class="stats section light-background">
@@ -800,6 +775,37 @@ include('header.php');
 </section><!-- /Testimonials Section -->
 
 </main>
+
+<style>
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+  }
+  .slide-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  .slide-content {
+    padding-left: 30px;
+  }
+  .slide-content h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  .slide-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+  }
+  /* Ensure pagination is centered */
+  .swiper-pagination {
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 20px;
+    margin-left: 50%;
+    width: 100% !important;
+  }
+</style>
 
 <script>
     const imageSwiper = new Swiper('.image-swiper', {

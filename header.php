@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Active Bootstrap Template</title>
+  <title>Home - Artisan Business Network Bangladesh</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -72,3 +72,34 @@
 
     </div>
   </header>
+<style>
+/* Initial transparent header */
+#header {
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  z-index: 10; /* Ensure it stays on top */
+}
+
+/* White background when scrolled */
+#header.scrolled {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow */
+}
+
+/* Add a background color when scrolling */
+.sticky-top.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent dark background */
+}
+</style>
+<script>
+  // JavaScript to change header background on scroll
+window.addEventListener("scroll", function () {
+  const header = document.getElementById("header");
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
+
+</script>

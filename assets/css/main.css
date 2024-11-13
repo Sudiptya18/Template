@@ -2383,10 +2383,9 @@ section,
 
 /* Background image for the 'grn' class */
 .grn {
-  background: url('assets/bg.png') no-repeat center center;
+  background-image: url("../img/bg.png");
   background-size: cover;
-  position: relative;
-  padding: 50px 0;
+  background-repeat: no-repeat;
 }
 
 /* Swiper wrapper adjustments */
@@ -2401,4 +2400,42 @@ section,
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
+}
+
+/* Basic card styling */
+.services-item {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* Icon styling */
+.services-icon {
+  font-size: 40px;
+  color: #29801d; /* Customize color as needed */
+  margin-bottom: 15px;
+}
+
+/* Title styling */
+.services-item h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Text styling */
+.services-item p {
+  font-size: 1em;
+  color: #666666;
+  line-height: 1.6;
+}
+
+/* Hover effect */
+.services-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #f8f9fa; /* Slightly lighter background on hover */
 }
