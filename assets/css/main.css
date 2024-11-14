@@ -2530,3 +2530,206 @@ section,
     font-size: 0.85em;
   }
 }
+
+.serviceclass{
+  height: 280px;
+}
+
+/* Base styles for service items */
+.services .services-item {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+  background-color: #fff;
+}
+
+.services .services-item:hover {
+  transform: translateY(-10px);
+}
+
+.services .services-icon {
+  font-size: 3em;
+  color: #4CAF50; /* Customize this color as needed */
+  margin-bottom: 15px;
+}
+
+.services .services-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.services .services-item p {
+  font-size: 1em;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .services .col-lg-3 {
+    flex: 0 0 45%;
+    max-width: 45%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services .col-lg-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .services .services-item {
+    padding: 15px;
+  }
+  .services .services-icon {
+    font-size: 2.5em;
+  }
+  .services .services-item h3 {
+    font-size: 1.3em;
+  }
+  .services .services-item p {
+    font-size: 0.9em;
+  }
+}
+
+
+/* Styles for the Brands Section */
+/* Center brand cards and add space between image and text */
+.brand-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.brand-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 6px 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  bottom: 10px;
+  text-align: center;
+  transition: color 0.3s;
+}
+
+.brand-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(62, 162, 12, 0.545);
+}
+
+.brand-card:hover .brand-image img {
+  transform: scale(1.05);
+}
+
+.brand-card:hover .brand-content h3 {
+  color: #309e0f;
+}
+
+/* Responsive styling to show two columns on smaller screens */
+@media (max-width: 768px) {
+  .col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+
+/* Product Section Styling */
+.products .section-title h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.product-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card .thumb img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.product-card .product-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.product-card h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+  color: #333;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.product-card .btn-view-details {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.product-card .btn-view-details:hover {
+  background-color: #0056b3;
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .product-card {
+    margin-bottom: 20px;
+  }
+
+  .products .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 576px) {
+  .products .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+

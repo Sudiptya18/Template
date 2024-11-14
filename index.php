@@ -1,6 +1,8 @@
 <?php
 $body_class = 'index-page';
 include('header.php'); 
+// Connect to the database
+include 'admin/connection.php';
 ?>
 
 <main class="main">
@@ -133,7 +135,7 @@ include('header.php');
     <div class="row gy-4 justify-content-center">
       <!-- Card 1 -->
       <div class="col-lg-3">
-        <div class="services-item" data-aos="fade-up">
+        <div class="services-item serviceclass" data-aos="fade-up">
           <div class="services-icon">
             <i class="bi bi-bullseye"></i>
           </div>
@@ -145,7 +147,7 @@ include('header.php');
       </div>
       <!-- Card 2 -->
       <div class="col-lg-3">
-        <div class="services-item" data-aos="fade-up" data-aos-delay="100">
+        <div class="services-item serviceclass" data-aos="fade-up" data-aos-delay="100">
           <div class="services-icon">
             <i class="bi bi-command"></i>
           </div>
@@ -157,7 +159,7 @@ include('header.php');
       </div>
       <!-- Card 3 -->
       <div class="col-lg-3">
-        <div class="services-item" data-aos="fade-up" data-aos-delay="200">
+        <div class="services-item serviceclass" data-aos="fade-up" data-aos-delay="200">
           <div class="services-icon">
             <i class="bi bi-bar-chart"></i>
           </div>
@@ -170,7 +172,7 @@ include('header.php');
     </div>
   </div>
 </section>
-
+<!-- Services Section End -->
 
 <!-- Stats Section -->
 <section id="stats" class="stats section light-background">
@@ -200,22 +202,22 @@ include('header.php');
 
           <!-- Start Stats Item -->
           <div class="col-4 counter" data-aos="fade-up" data-aos-delay="100">
-            <span data-purecounter-separator="true" data-purecounter-start="0" data-purecounter-end="3919" data-purecounter-duration="1" class="purecounter number"></span>
-            <span class="d-block">Coffee</span>
+            <span data-purecounter-separator="true" data-purecounter-start="0" data-purecounter-end="96" data-purecounter-duration="1" class="purecounter number"></span>
+            <span class="d-block">Dristribution House</span>
           </div>
           <!-- End Stats Item -->
 
           <!-- Start Stats Item -->
           <div class="col-4 counter" data-aos="fade-up" data-aos-delay="200">
-            <span data-purecounter-separator="true" data-purecounter-start="0" data-purecounter-end="2831" data-purecounter-duration="1" class="purecounter number"></span>
-            <span class="d-block">Codes</span>
+            <span data-purecounter-separator="true" data-purecounter-start="0" data-purecounter-end="17" data-purecounter-duration="1" class="purecounter number"></span>
+            <span class="d-block">Brands</span>
           </div>
           <!-- End Stats Item -->
 
           <!-- Start Stats Item -->
           <div class="col-4 counter" data-aos="fade-up" data-aos-delay="300">
-            <span data-purecounter-separator="true" data-purecounter-start="0" data-purecounter-end="1914" data-purecounter-duration="1" class="purecounter number"></span>
-            <span class="d-block">Projects</span>
+            <span data-purecounter-separator="true" data-purecounter-start="0" data-purecounter-end="180" data-purecounter-duration="1" class="purecounter number"></span>
+            <span class="d-block">Products</span>
           </div>
           <!-- End Stats Item -->
 
@@ -225,104 +227,47 @@ include('header.php');
     </div>
 
   </div>
-</section><!-- /Stats Section -->
+</section>
 
-<!-- Blog Posts Section -->
-<section id="blog-posts" class="blog-posts section">
-  <!-- Section Title -->
+<?php
+
+// Define the query
+$query = "SELECT * FROM brands";
+
+// Execute the query and check for errors
+$result = $conn->query($query);
+
+if (!$result) {
+    die("Query failed: " . $conn->error); // Show a message if the query fails
+}
+?>
+
+<!-- Starts Brands -->
+<section id="brands" class="brands section light-background">
   <div class="container section-title" data-aos="fade-up">
-    <p>Recent Posts</p>
-    <h2>Blog Posts</h2>
-  </div><!-- End Section Title -->
+    <h1>Our Brands</h1>
+  </div>
   <div class="container">
-
-    <div class="row gy-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="post-entry" data-aos="fade-up" data-aos-delay="100">
-          <a href="#" class="thumb d-block"><img src="assets/img/img_h_4.jpg" alt="Image" class="img-fluid rounded"></a>
-
-          <div class="post-content">
-            <div class="meta">
-              <a href="#" class="cat">Development</a> •
-              <span class="date">July 20, 2020</span>
-            </div>
-            <h3><a href="#">There live the blind texts they live</a></h3>
-            <p>
-              Far far away, behind the word mountains, far from the countries
-              Vokalia and Consonantia, there live the blind texts.
-            </p>
-
-            <div class="d-flex author align-items-center">
-              <div class="pic">
-                <img src="assets/img/team/team-3.jpg" alt="Image" class="img-fluid rounded-circle">
+    <div class="row gy-4 justify-content-center">
+      <?php while ($row = $result->fetch_assoc()): ?>
+        <div class="col-6 col-md-4 col-lg-3">
+          <a href="brand-details.php?id=<?php echo $row['brand_id']; ?>" class="brand-card-link">
+            <div class="brand-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="brand-image">
+                <img src="<?php echo $row['b_image']; ?>" alt="<?php echo $row['brand_name']; ?>" class="img-fluid rounded">
               </div>
-              <div class="author-name">
-                <strong class="d-block">Winston Gold</strong>
-                <span class="">Lead Product Designer</span>
+              <div class="brand-content">
+                <h3><?php echo $row['brand_name']; ?></h3>
               </div>
             </div>
-          </div>
+          </a>
         </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="post-entry" data-aos="fade-up" data-aos-delay="200">
-          <a href="#" class="thumb d-block"><img src="assets/img/img_h_2.jpg" alt="Image" class="img-fluid rounded"></a>
-
-          <div class="post-content">
-            <div class="meta">
-              <a href="#" class="cat">Development</a> •
-              <span class="date">July 20, 2020</span>
-            </div>
-            <h3><a href="#">There live the blind texts they live</a></h3>
-            <p>
-              Far far away, behind the word mountains, far from the countries
-              Vokalia and Consonantia, there live the blind texts.
-            </p>
-
-            <div class="d-flex author align-items-center">
-              <div class="pic">
-                <img src="assets/img/team/team-2.jpg" alt="Image" class="img-fluid rounded-circle">
-              </div>
-              <div class="author-name">
-                <strong class="d-block">Winston Gold</strong>
-                <span class="">Lead Product Designer</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-4">
-        <div class="post-entry" data-aos="fade-up" data-aos-delay="300">
-          <a href="#" class="thumb d-block"><img src="assets/img/img_h_3.jpg" alt="Image" class="img-fluid rounded"></a>
-
-          <div class="post-content">
-            <div class="meta">
-              <a href="#" class="cat">Development</a> •
-              <span class="date">July 20, 2020</span>
-            </div>
-            <h3><a href="#">There live the blind texts they live</a></h3>
-            <p>
-              Far far away, behind the word mountains, far from the countries
-              Vokalia and Consonantia, there live the blind texts.
-            </p>
-
-            <div class="d-flex author align-items-center">
-              <div class="pic">
-                <img src="assets/img/team/team-1.jpg" alt="Image" class="img-fluid rounded-circle">
-              </div>
-              <div class="author-name">
-                <strong class="d-block">Winston Gold</strong>
-                <span class="">Lead Product Designer</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <?php endwhile; ?>
     </div>
   </div>
-</section><!-- /Blog Posts Section -->
+</section>
+<!-- Ends Brands -->
+
 
 <!-- Tabs Section -->
 <section id="tabs" class="tabs section light-background">
@@ -465,6 +410,45 @@ include('header.php');
   </div>
 </section><!-- /Tabs Section -->
 
+
+<!-- Product Section -->
+<section id="products" class="products section light-background">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h1>Our Products</h1>
+  </div>
+  
+  <!-- Container for Product Cards -->
+  <div class="container">
+    <div class="row gy-4">
+      
+      <?php
+      // Fetch only 12 products from the database
+      $query = "SELECT * FROM product LIMIT 12"; // Update this with your actual table name and columns
+      $result = $conn->query($query);
+
+      // Display each product in a 3-column grid (4 products per row)
+      while ($row = $result->fetch_assoc()):
+      ?>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <a href="product_details.php?id=<?php echo $row['product_id']; ?>" class="thumb d-block">
+              <img src="admin/uploads/products/<?php echo $row['p_image1']; ?>" alt="<?php echo $row['product_title']; ?>" class="img-fluid rounded">
+            </a>
+            <div class="product-content">
+              <h3><?php echo $row['product_title']; ?></h3>
+            </div>
+          </div>
+        </div>
+      <?php endwhile; ?>
+      
+    </div>
+  </div>
+</section>
+<!-- End Product Section -->
+
+
+
 <!-- Services 2 Section -->
 <section id="services-2" class="services-2 section">
 
@@ -540,77 +524,6 @@ include('header.php');
     </div>
   </div>
 </section><!-- /Services 2 Section -->
-
-<!-- Pricing Section -->
-<section id="pricing" class="pricing section light-background">
-
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <p>Plans</p>
-    <h2>Pricing Table</h2>
-  </div><!-- End Section Title -->
-
-  <div class="container">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="pricing-item">
-          <h3>Free</h3>
-          <h4><sup>$</sup>0<span> / month</span></h4>
-          <ul>
-            <li>Aida dere</li>
-            <li>Nec feugiat nisl</li>
-            <li>Nulla at volutpat dola</li>
-            <li class="na">Pharetra massa</li>
-            <li class="na">Massa ultricies mi</li>
-          </ul>
-          <div class="btn-wrap">
-            <a href="#" class="btn-buy">Buy Now</a>
-          </div>
-        </div>
-      </div><!-- End Pricing Item -->
-
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="pricing-item recommended">
-          <span class="recommended-badge">Recommended</span>
-          <h3>Business</h3>
-          <h4><sup>$</sup>19<span> / month</span></h4>
-          <ul>
-            <li>Aida dere</li>
-            <li>Nec feugiat nisl</li>
-            <li>Nulla at volutpat dola</li>
-            <li>Pharetra massa</li>
-            <li class="na">Massa ultricies mi</li>
-          </ul>
-          <div class="btn-wrap">
-            <a href="#" class="btn-buy">Buy Now</a>
-          </div>
-        </div>
-      </div><!-- End Pricing Item -->
-
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="pricing-item">
-          <h3>Developer</h3>
-          <h4><sup>$</sup>29<span> / month</span></h4>
-          <ul>
-            <li>Aida dere</li>
-            <li>Nec feugiat nisl</li>
-            <li>Nulla at volutpat dola</li>
-            <li>Pharetra massa</li>
-            <li>Massa ultricies mi</li>
-          </ul>
-          <div class="btn-wrap">
-            <a href="#" class="btn-buy">Buy Now</a>
-          </div>
-        </div>
-      </div><!-- End Pricing Item -->
-
-    </div>
-
-  </div>
-
-</section><!-- /Pricing Section -->
 
 <!-- Faq Section -->
 <section id="faq" class="faq section">
