@@ -250,7 +250,7 @@ if (!$result) {
   <div class="container">
     <div class="row gy-4 justify-content-center">
       <?php while ($row = $result->fetch_assoc()): ?>
-        <div class="col-6 col-md-4 col-lg-3">
+        <div class="col-6 col-sm-4 col-lg-2"> <!-- Adjusted column classes for 5 items per row -->
           <a href="brand-details.php?id=<?php echo $row['brand_id']; ?>" class="brand-card-link">
             <div class="brand-card" data-aos="fade-up" data-aos-delay="100">
               <div class="brand-image">
@@ -269,6 +269,7 @@ if (!$result) {
 <!-- Ends Brands -->
 
 
+
 <!-- Tabs Section -->
 <section id="tabs" class="tabs section light-background">
 
@@ -281,9 +282,9 @@ if (!$result) {
           </div>
           <!-- /.icon -->
           <div class="service-contents">
-            <h3>Modern and clean design</h3>
+            <h3>Sales & Marketing</h3>
             <p>
-              Far far away, behind the word mountains, far from the countries .
+            Sales and marketing services are designed to unlock new revenue streams for businesses .
             </p>
           </div>
           <!-- /.service-contents-->
@@ -296,9 +297,9 @@ if (!$result) {
           </div>
           <!-- /.icon -->
           <div class="service-contents">
-            <h3>Sell Products</h3>
+            <h3>Distribution & Logistics</h3>
             <p>
-              Far far away, behind the word mountains, far from the countries .
+            360-degree distribution and logistics system.
             </p>
           </div>
           <!-- /.service-contents-->
@@ -311,9 +312,9 @@ if (!$result) {
           </div>
           <!-- /.icon -->
           <div class="service-contents">
-            <h3>Success Every Day</h3>
+            <h3>Exchange</h3>
             <p>
-              Far far away, behind the word mountains, far from the countries .
+            Trading solutions connect businesses to valuable resources .
             </p>
           </div>
           <!-- /.service-contents-->
@@ -326,9 +327,9 @@ if (!$result) {
           </div>
           <!-- /.icon -->
           <div class="service-contents">
-            <h3>Bring Ideas to Life</h3>
+            <h3>Quality</h3>
             <p>
-              Far far away, behind the word mountains, far from the countries .
+            Maintain our commitment to quality through regular audits .
             </p>
           </div>
           <!-- /.service-contents-->
@@ -366,42 +367,53 @@ if (!$result) {
           </script>
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <img src="assets/img/img_h_1.jpg" alt="Image" class="img-fluid">
+              <!-- <img src="assets/img/img_h_1.jpg" alt="Image" class="img-fluid"> -->
               <div class="p-4">
-                <h3 class="text-black h5 mb-3">Modern and clean design</h3>
+                <h3 class="text-black h5 mb-3">Sales & Marketing</h3>
                 <div class="row">
-                  <div class="col-lg-8">
+                  <div class="col-lg-12">
                     <p>
-                      Far far away, behind the word mountains, far from the
-                      countries Vokalia and Consonantia, there live the blind
-                      texts. Separated they live in Bookmarksgrove right at the
-                      coast of the Semantics, a large language ocean.
+                    Our comprehensive sales and marketing services are designed to unlock new revenue streams for businesses operating in Bangladesh. We achieve this by ensuring widespread product distribution across all relevant channels throughout the country.
                     </p>
-                    <p>
-                      A small river named Duden flows by their place and
-                      supplies it with the necessary regelialia. It is a
-                      paradisematic country, in which roasted parts of sentences
-                      fly into your mouth.
-                    </p>
-                  </div>
-                  <div class="col-lg-4">
-                    <ul class="list-unstyled list-check">
-                      <li>Far far away, behind the word</li>
-                      <li>Far from the countries Vokalia</li>
-                      <li>Separated they live in Bookmarksgrove</li>
-                    </ul>
                   </div>
                 </div>
               </div>
             </div>
             <div class="swiper-slide">
-              <img src="assets/img/img_h_2.jpg" alt="Image" class="img-fluid">
+              <!-- <img src="assets/img/img_h_2.jpg" alt="Image" class="img-fluid"> -->
+              <div class="p-4">
+                <h3 class="text-black h5 mb-3">Distribution & Logistics</h3>
+                <div class="row">
+                  <div class="col-lg-8">
+                    <p>
+                    With our 360-degree distribution and logistics system, we possess the capability to deliver products to any location in the country within 48 hours, ensuring timely and efficient delivery.                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="swiper-slide">
-              <img src="assets/img/img_h_3.jpg" alt="Image" class="img-fluid">
+              <!-- <img src="assets/img/img_h_3.jpg" alt="Image" class="img-fluid"> -->
+              <div class="p-4">
+                <h3 class="text-black h5 mb-3">Exchange</h3>
+                <div class="row">
+                  <div class="col-lg-8">
+                    <p>
+                    Our trading solutions connect businesses to valuable resources from around the world. This enriches and diversifies the product offerings of various companies.                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="swiper-slide">
-              <img src="assets/img/img_h_4.jpg" alt="Image" class="img-fluid">
+              <!-- <img src="assets/img/img_h_4.jpg" alt="Image" class="img-fluid"> -->
+              <div class="p-4">
+                <h3 class="text-black h5 mb-3">Quality</h3>
+                <div class="row">
+                  <div class="col-lg-8">
+                    <p>
+                    We maintain our commitment to quality through regular audits and rigorous follow-up procedures for all activities, adhering to our well-defined quality manual and the Standard Operating Procedures (SOP), which serve as the bedrock of Artisan's operational standards.                  </div>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
         </div>
@@ -420,25 +432,23 @@ if (!$result) {
   
   <!-- Container for Product Cards -->
   <div class="container">
-    <div class="row gy-4">
+    <div class="row gy-4 justify-content-center">
       
       <?php
-      // Fetch only 12 products from the database
-      $query = "SELECT * FROM product LIMIT 12"; // Update this with your actual table name and columns
+      $query = "SELECT * FROM product LIMIT 15"; // Fetch 15 products
       $result = $conn->query($query);
 
-      // Display each product in a 3-column grid (4 products per row)
       while ($row = $result->fetch_assoc()):
       ?>
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-            <a href="product_details.php?id=<?php echo $row['product_id']; ?>" class="thumb d-block">
-              <img src="admin/uploads/products/<?php echo $row['p_image1']; ?>" alt="<?php echo $row['product_title']; ?>" class="img-fluid rounded">
-            </a>
-            <div class="product-content">
-              <h3><?php echo $row['product_title']; ?></h3>
+        <div class="col-lg-2-4 col-md-4 col-sm-6">
+          <a href="product_details.php?id=<?php echo $row['product_id']; ?>" class="product-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="image-container">
+              <img src="admin/uploads/products/<?php echo $row['p_image1']; ?>" alt="<?php echo $row['product_title']; ?>" class="img-fluid">
             </div>
-          </div>
+            <div class="product-content text-center mt-2">
+              <h8><?php echo $row['product_title']; ?></h8>
+            </div>
+          </a>
         </div>
       <?php endwhile; ?>
       
@@ -446,6 +456,7 @@ if (!$result) {
   </div>
 </section>
 <!-- End Product Section -->
+
 
 
 
@@ -718,6 +729,113 @@ if (!$result) {
     margin-left: 50%;
     width: 100% !important;
   }
+  /* Custom width for 5 items per row on large screens */
+  .col-lg-2-4 {
+    flex: 0 0 20%; /* 20% width for each item */
+    max-width: 20%;
+  }
+/* Product card styles */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid transparent; /* Transparent border initially */
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background-color: #fff;
+  height: 100%;
+  position: relative; /* Needed for pseudo-element */
+  overflow: hidden; /* Ensures pseudo-element stays within bounds */
+}
+
+/* Hover effect for card shadow and slight lift */
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2);
+}
+
+/* Dynamic border effect using pseudo-element */
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 2px solid green; /* Green border effect */
+  z-index: 1;
+  pointer-events: none; /* Ensure no interaction */
+  clip-path: circle(0% at 50% 50%); /* Initially hidden */
+  transition: clip-path 0.3s ease-out; /* Smooth transition */
+}
+
+/* Expand border from the cursor position on hover */
+.product-card:hover::before {
+  clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
+}
+
+/* Image container styles */
+.image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Zoom effect on hover */
+.image-container:hover img {
+  transform: scale(1.1);
+}
+
+/* Title styling */
+.product-content h8 {
+  font-size: 12px;
+  text-transform: capitalize;
+  color: #333;
+  margin: 0;
+}
+
+.product-content h8:hover {
+  color: #007bff;
+}
+
+/* Custom column width for 5 per row */
+.col-lg-2-4 {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .col-lg-2-4 {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-lg-2-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+
+
+
 </style>
 
 <script>
@@ -747,6 +865,17 @@ if (!$result) {
     textSwiper.on('slideChange', () => {
     imageSwiper.slideTo(textSwiper.realIndex);
     });
+
+    document.querySelectorAll('.product-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--x', `${x}px`);
+    card.style.setProperty('--y', `${y}px`);
+  });
+});
+
 </script>
 
 <?php include('footer.php'); ?>
