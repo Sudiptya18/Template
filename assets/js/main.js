@@ -219,3 +219,173 @@
   });
 
 })();
+
+
+$(document).ready(function () {
+  let currentPage = 1;
+
+  // Fetch initial products
+  fetchProducts();
+
+  // Fetch filters
+  fetchFilters();
+
+  // Fetch products
+  function fetchProducts() {
+      const brand = $('input[name="brand"]:checked').val() || '';
+      const category = $('input[name="category"]:checked').val() || '';
+
+      $.ajax({
+          url: 'fetch_products.php',
+          type: 'POST',
+          data: { brand, category, page: currentPage },
+          success: function (response) {
+              const products = JSON.parse(response);
+              renderProducts(products);
+              renderPagination();
+          }
+      });
+  }
+
+  // Fetch filters
+  function fetchFilters() {
+      $.ajax({
+          url: 'fetch_filters.php', // Create a separate PHP script to fetch brand and category filters
+          type: 'GET',
+          success: function (response) {
+              const filters = JSON.parse(response);
+              renderFilters(filters);
+          }
+      });
+  }
+
+  // Render products
+  function renderProducts(products) {
+      const productGrid = $('#product-grid');
+      productGrid.empty();
+
+      products.forEach(product => {
+          productGrid.append(`
+              <div class="product-card">
+                  <img src="${product.p_image1}" alt="${product.product_title}">
+                  <h4>${product.product_title}</h4>
+                  <p>${product.brand_name} - ${product.category_name}</p>
+                  <p>Pack Size: ${product.pack_size}</p>
+              </div>
+          `);
+      });
+  }
+
+  // Render filters
+  function renderFilters(filters) {
+      const brandFilters = $('#brand-filters');
+      const categoryFilters = $('#category-filters');
+
+      filters.brands.forEach(brand => {
+          brandFilters.append(`
+              <label><input type="radio" name="brand" value="${brand.brand_id}">${brand.brand_name}</label>
+          `);
+      });
+
+      filters.categories.forEach(category => {
+          categoryFilters.append(`
+              <label><input type="radio" name="category" value="${category.categories_id}">${category.category_name}</label>
+          `);
+      });
+
+      // Add change listeners
+      $('input[name="brand"], input[name="category"]').change(fetchProducts);
+  }
+
+  // Render pagination
+  function renderPagination() {
+      const pagination = $('#pagination');
+      pagination.empty();
+
+      for (let i = 1; i <= 5; i++) { // Assume 5 pages for now
+          pagination.append(`
+              <button class="page-link" data-page="${i}">${i}</button>
+          `);
+      }
+
+      $('.page-link').click(function () {
+          currentPage = $(this).data('page');
+          fetchProducts();
+      });
+  }
+});
+
+$(document).ready(function () {
+  // Update filters dynamically when an option is clicked
+  $('.filter-option').on('change', function () {
+      let brand = $('input[name="brand"]:checked').val();
+      let category = $('input[name="category"]:checked').val();
+
+      // Reload page with updated filters
+      let query = `?brand=${brand || ''}&category=${category || ''}`;
+      window.location.href = query;
+  });
+});
+
+
+$(document).ready(function () {
+  let selectedFilters = {
+      brand: [],
+      category: []
+  };
+
+  // Initialize filters based on URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('brand')) {
+      selectedFilters.brand = urlParams.get('brand').split(',');
+  }
+  if (urlParams.get('category')) {
+      selectedFilters.category = urlParams.get('category').split(',');
+  }
+
+  // Handle filter button click
+  $('.filter-btn').on('click', function () {
+      const filterType = $(this).data('filter');
+      const filterId = $(this).data('id');
+
+      // Toggle selection
+      if ($(this).hasClass('active')) {
+          $(this).removeClass('active');
+          selectedFilters[filterType] = selectedFilters[filterType].filter(id => id !== filterId.toString());
+      } else {
+          $(this).addClass('active');
+          selectedFilters[filterType].push(filterId.toString());
+      }
+
+      // Update URL and reload page
+      const queryParams = new URLSearchParams();
+      if (selectedFilters.brand.length > 0) {
+          queryParams.set('brand', selectedFilters.brand.join(','));
+      }
+      if (selectedFilters.category.length > 0) {
+          queryParams.set('category', selectedFilters.category.join(','));
+      }
+      queryParams.set('page', 1); // Reset to first page
+      window.location.search = queryParams.toString();
+  });
+});
+
+
+$(document).ready(function () {
+  $('#apply-filters').on('click', function () {
+      const selectedBrands = $('#brand-filter').val();
+      const selectedCategories = $('#category-filter').val();
+
+      // Build query string for filters
+      const queryParams = new URLSearchParams();
+      if (selectedBrands && selectedBrands.length > 0) {
+          queryParams.set('brand', selectedBrands.join(','));
+      }
+      if (selectedCategories && selectedCategories.length > 0) {
+          queryParams.set('category', selectedCategories.join(','));
+      }
+
+      // Navigate to updated URL
+      window.location.search = queryParams.toString();
+  });
+});

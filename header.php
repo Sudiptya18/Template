@@ -29,6 +29,8 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body class="<?php echo $body_class; ?>">
@@ -39,7 +41,7 @@
             <a href="index.php" class="logo d-flex align-items-center">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <img src="assets/img/abc.png" alt="">
-                <!-- <h1 class="sitename">Active.</h1> -->
+                <!-- <h1 class="sitename">Artisan</h1> -->
             </a>
 
             <nav id="navmenu" class="navmenu">
@@ -49,9 +51,9 @@
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                             <li><a href="about.html">About Us</a></li>
-                            <li><a href="#">Statement</a></li>
-                            <li><a href="#">Our Supply Partner</a></li>
-                            <li><a href="#">Our Team Member</a></li>
+                            <li><a href="statement.php">Statement</a></li>
+                            <li><a href="partner.php">Our Supply Partner</a></li>
+                            <li><a href="team.php">Our Team Member</a></li>
                         </ul>
                     </li>
                     <li><a href="services.html">Services</a></li>
@@ -59,8 +61,8 @@
                     <li class="dropdown"><a href="#"><span>Products</span> <i
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
-                            <li><a href="team.html">Unilever Products</a></li>
-                            <li><a href="#">Ximi-V Products</a></li>
+                            <li><a href="products.php">Unilever Products</a></li>
+                            <li><a href="team.html">Ximi-V Products</a></li>
                             <li><a href="#">TBA</a></li>
                         </ul>
                     </li>

@@ -194,14 +194,12 @@ include 'admin/connection.php';
 
                 <div class="col-lg-4 ps-lg-5">
                     <span class="content-subtitle">Why Us</span>
-                    <h2 class="content-title">Far far away Behind the Word Mountains</h2>
-                    <p class="lead">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia.
-                    </p>
+                    <h2 class="content-title">Premiumness of your look in exceeding excellence</h2>
                     <p class="mb-5">
-                        There live the blind texts. Separated they live in Bookmarksgrove
-                        right at the coast of the Semantics, a large language ocean.
+                        Artisan Business Network is an import and distribution company that specializes in sourcing and
+                        delivering high-quality products from overseas suppliers to businesses and consumers in the
+                        local market. We are dedicated to providing our customers with exceptional service and products
+                        at competitive prices, while also supporting fair trade and ethical business practices.
                     </p>
                     <div class="row mb-5 count-numbers">
 
