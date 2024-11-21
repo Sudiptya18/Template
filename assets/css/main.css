@@ -3096,3 +3096,41 @@ body {
     scroll-margin-top: 100px;
     overflow: clip;
 }
+
+/* Contact Page Styles */
+.contact-page .info {
+  background: #f7f7f7;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.contact-page .form-group {
+  margin-bottom: 15px;
+}
+
+.contact-page .form-control {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.contact-page button[type="submit"] {
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-page button[type="submit"]:hover {
+  background: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  iframe {
+      width: 100%;
+      height: 300px;
+  }
+}

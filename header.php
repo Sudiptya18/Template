@@ -50,19 +50,19 @@
                     <li class="dropdown"><a href="#"><span>About</span> <i
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
-                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="about.php">About Us</a></li>
                             <li><a href="statement.php">Statement</a></li>
                             <li><a href="partner.php">Our Supply Partner</a></li>
                             <li><a href="team.php">Our Team Member</a></li>
                         </ul>
                     </li>
-                    <li><a href="services.html">Services</a></li>
+                    <li><a href="services.php">Services</a></li>
                     <li><a href="brands.php">Brands</a></li>
                     <li class="dropdown"><a href="#"><span>Products</span> <i
                                 class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                             <li><a href="products.php">Unilever Products</a></li>
-                            <li><a href="team.html">Ximi-V Products</a></li>
+                            <li><a href="#">Ximi-V Products</a></li>
                             <li><a href="#">TBA</a></li>
                         </ul>
                     </li>
@@ -85,7 +85,7 @@
               <li><a href="#">Dropdown 4</a></li>
             </ul>
           </li> -->
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
