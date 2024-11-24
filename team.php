@@ -1,6 +1,6 @@
 <?php
 $body_class = 'index-page';
-include('header.php'); 
+include('header.php');
 // Connect to the database
 include 'admin/connection.php';
 
@@ -29,7 +29,7 @@ $result = mysqli_query($conn, $query);
             </div>
         </div><!-- End Page Title -->
 
-        <!-- Team Section -->
+        <!-- Team Section 1-->
         <section id="team" class="team section">
             <div style="text-align: center;">
                 <h1>Dedicated & Experienced Team Members</h1>
@@ -100,10 +100,97 @@ $result = mysqli_query($conn, $query);
             </div>
         </section><!-- /Team Section -->
 
+        <!-- Team Section -->
+        <section id="team" class="team section">
+            <div style="text-align: center;">
+                <h1>Dedicated & Experienced Team Members</h1>
+            </div>
+
+            <div class="site-section slider-team-wrap">
+                <div class="container">
+                    <div class="slider-nav d-flex justify-content-end mb-3">
+                        <a href="#" class="js-prev js-custom-prev"><i class="bi bi-arrow-left-short"></i></a>
+                        <a href="#" class="js-next js-custom-next"><i class="bi bi-arrow-right-short"></i></a>
+                    </div>
+
+                    <!-- Swiper -->
+                    <div class="swiper init-swiper">
+                        <div class="swiper-wrapper">
+                            <?php
+                            // Assuming $result contains data from the database
+                            mysqli_data_seek($result, 0); // Reset the result pointer for reuse
+                            while ($row = mysqli_fetch_assoc($result)): ?>
+                            <div class="swiper-slide">
+                                <div class="pe">
+                                    <img src="<?= htmlspecialchars($row['image']) ?>"
+                                        alt="<?= htmlspecialchars($row['name']) ?>">
+                                    <div class="p-name"><?= htmlspecialchars($row['name']) ?></div>
+                                    <div class="p-des"><?= htmlspecialchars($row['designation']) ?></div>
+                                </div>
+                            </div>
+                            <?php endwhile; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const swiperConfig = {
+                loop: true,
+                speed: 600,
+                autoplay: {
+                    delay: 3000,
+                },
+                slidesPerView: 1,
+                pagination: {
+                    el: '.swiper-pagination',
+                    type: 'bullets',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.js-custom-next',
+                    prevEl: '.js-custom-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 30
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 30
+                    },
+                },
+            };
+
+            // Initialize Swiper
+            const swiper = new Swiper('.init-swiper', swiperConfig);
+        });
+        </script>
+
+
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const swiperConfig = JSON.parse(document.querySelector(".swiper-config").textContent);
+
+            new Swiper(".swiper-container", {
+                ...swiperConfig,
+                navigation: {
+                    nextEl: ".js-custom-next",
+                    prevEl: ".js-custom-prev"
+                }
+            });
+        });
+        </script>
+
     </main>
 
 </body>
 
 <?php include('footer.php'); ?>
-
-</html>

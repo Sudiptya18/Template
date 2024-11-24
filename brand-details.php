@@ -60,6 +60,20 @@ if ($stmt === false) {
 $stmt->bind_param("i", $brand_id);
 $stmt->execute();
 $products = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$sku_query = "SELECT COUNT(*) AS total_skus FROM product WHERE brand_id = $brand_id";
+$sku_result = mysqli_query($conn, $sku_query);
+$sku_data = mysqli_fetch_assoc($sku_result);
+$total_skus = $sku_data['total_skus'] ?? 0;
+
+// Query to count the number of categories for the given brand
+$category_query = "
+    SELECT COUNT(DISTINCT categories_id) AS total_categories 
+    FROM product 
+    WHERE brand_id = $brand_id";
+$category_result = mysqli_query($conn, $category_query);
+$category_data = mysqli_fetch_assoc($category_result);
+$total_categories = $category_data['total_categories'] ?? 0;
+
 ?>
 
 
@@ -89,7 +103,7 @@ $products = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                     <div class="widgets-container">
                         <!-- Card 1: Brand Details -->
                         <div class="brand-card floating-card">
-                            <img src="<?php echo $brand_data['b_image']; ?>" class="brand-image"
+                            <img src="<?php echo $brand_data['b_image']; ?>" class="brand-details-image"
                                 alt="<?php echo $brand_data['brand_name']; ?>">
                             <h4><?php echo $brand_data['brand_name']; ?></h4>
                             <p><?php echo $brand_data['details_1']; ?></p>
@@ -100,6 +114,30 @@ $products = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                             <p><?php echo $brand_data['details_6']; ?></p>
                         </div>
                     </div>
+                    <div class="e-con-inner">
+                        <!-- SKUs Card -->
+                        <div class="card hover-card">
+                            <div class="card-left">
+                                <i class="fa fa-box" style="font-size: 30px; color: #3498db;"></i>
+                                <p>SKUs</p>
+                            </div>
+                            <div class="card-right">
+                                <h3><?= htmlspecialchars($total_skus) ?></h3>
+                            </div>
+                        </div>
+
+                        <!-- Categories Card -->
+                        <div class="card hover-card">
+                            <div class="card-left">
+                                <i class="fa fa-tags" style="font-size: 30px; color: #2ecc71;"></i>
+                                <p>Categories</p>
+                            </div>
+                            <div class="card-right">
+                                <h3><?= htmlspecialchars($total_categories) ?></h3>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Main Content -->
@@ -164,27 +202,29 @@ $products = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 <!-- Optional: Add custom CSS for transparency -->
 <style>
-    .table-transparent {
-        background-color: rgba(255, 255, 255, 0.8); /* Transparent white */
-        border: 1px solid #ddd;
-        color: #333;
-    }
+.table-transparent {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Transparent white */
+    border: 1px solid #ddd;
+    color: #333;
+}
 
-    .table-transparent th,
-    .table-transparent td {
-        text-align: center;
-        padding: 10px;
-    }
+.table-transparent th,
+.table-transparent td {
+    text-align: center;
+    padding: 10px;
+}
 
-    .table-transparent img {
-        max-width: 50px;
-        max-height: 50px;
-    }
-    .paddi{
-        padding: 20px;
-        text-align: center;
-        color: white;
-    }
+.table-transparent img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.paddi {
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
 </style>
 
 </html>
