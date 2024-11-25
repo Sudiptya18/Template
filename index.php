@@ -1,6 +1,6 @@
 <?php
 $body_class = 'index-page';
-include('header.php'); 
+include('header.php');
 // Connect to the database
 include 'admin/connection.php';
 ?>
@@ -13,29 +13,29 @@ include 'admin/connection.php';
                 <div class="col-lg-10" data-aos="fade-up" data-aos-delay="400">
                     <div class="swiper init-swiper">
                         <script type="application/json" class="swiper-config">
-                        {
-                            "loop": true,
-                            "speed": 600,
-                            "autoplay": {
-                                "delay": 5000
-                            },
-                            "slidesPerView": "auto",
-                            "pagination": {
-                                "el": ".swiper-pagination",
-                                "type": "bullets",
-                                "clickable": true
-                            },
-                            "breakpoints": {
-                                "320": {
-                                    "slidesPerView": 1,
-                                    "spaceBetween": 40
+                            {
+                                "loop": true,
+                                "speed": 600,
+                                "autoplay": {
+                                    "delay": 5000
                                 },
-                                "1200": {
-                                    "slidesPerView": 1,
-                                    "spaceBetween": 1
+                                "slidesPerView": "auto",
+                                "pagination": {
+                                    "el": ".swiper-pagination",
+                                    "type": "bullets",
+                                    "clickable": true
+                                },
+                                "breakpoints": {
+                                    "320": {
+                                        "slidesPerView": 1,
+                                        "spaceBetween": 40
+                                    },
+                                    "1200": {
+                                        "slidesPerView": 1,
+                                        "spaceBetween": 1
+                                    }
                                 }
                             }
-                        }
                         </script>
                         <div class="swiper-wrapper">
                             <!-- Slide 1 -->
@@ -90,48 +90,6 @@ include 'admin/connection.php';
             </div>
         </div>
     </section>
-
-
-
-
-    <!-- About 2 Section -->
-    <section id="about-2" class="about-2 section light-background">
-
-        <div class="container">
-            <div class="content">
-                <div class="row justify-content-center">
-                    <div class="col-sm-12 col-md-5 col-lg-4 col-xl-4 order-lg-2 offset-xl-1 mb-4">
-                        <div class="img-wrap text-center text-md-left" data-aos="fade-up" data-aos-delay="100">
-                            <div class="img">
-                                <img src="assets/img/img_v_3.jpg" alt="circle image" class="img-fluid">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="offset-md-0 offset-lg-1 col-sm-12 col-md-5 col-lg-5 col-xl-4" data-aos="fade-up">
-                        <div class="px-3">
-                            <span class="content-subtitle">Our Mission</span>
-                            <h2 class="content-title text-start">
-                                The Big Oxmox advised her not to do so, because there were
-                                thousands.
-                            </h2>
-                            <p class="lead">
-                                A small river named Duden flows by their place and supplies it
-                                with the necessary regelialia. It is a paradisematic country.
-                            </p>
-                            <p class="mb-5">
-                                The Big Oxmox advised her not to do so, because there were
-                                thousands of bad Commas, wild Question Marks and devious Semikoli.
-                            </p>
-                            <p>
-                                <a href="#" class="btn-get-started">Get Started</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- /About 2 Section -->
 
     <!-- Services Section -->
     <section id="services" class="services section light-background">
@@ -188,7 +146,7 @@ include 'admin/connection.php';
 
                 <div class="col-lg-5">
                     <div class="images-overlap">
-                        <img src="assets/img/img_v_1.jpg" alt="student" class="img-fluid img-1" data-aos="fade-up">
+                        <img src="assets/img/all.png" alt="student" class="img-fluid img-1" data-aos="fade-up">
                     </div>
                 </div>
 
@@ -238,16 +196,16 @@ include 'admin/connection.php';
 
     <?php
 
-// Define the query
-$query = "SELECT * FROM brands";
+    // Define the query
+    $query = "SELECT * FROM brands";
 
-// Execute the query and check for errors
-$result = $conn->query($query);
+    // Execute the query and check for errors
+    $result = $conn->query($query);
 
-if (!$result) {
-    die("Query failed: " . $conn->error); // Show a message if the query fails
-}
-?>
+    if (!$result) {
+        die("Query failed: " . $conn->error); // Show a message if the query fails
+    }
+    ?>
 
     <!-- Starts Brands -->
     <section id="brands" class="brands section light-background">
@@ -257,26 +215,25 @@ if (!$result) {
         <div class="container">
             <div class="row gy-4 justify-content-center">
                 <?php while ($row = $result->fetch_assoc()): ?>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <!-- Adjusted column classes for 5 items per row -->
-                    <a href="brand-details.php?id=<?php echo $row['brand_id']; ?>" class="brand-card-link">
-                        <div class="brand-card" data-aos="fade-up" data-aos-delay="100">
-                            <div class="brand-image">
-                                <img src="<?php echo $row['b_image']; ?>" alt="<?php echo $row['brand_name']; ?>"
-                                    class="img-fluid rounded">
+                    <div class="col-6 col-sm-4 col-lg-2">
+                        <!-- Adjusted column classes for 5 items per row -->
+                        <a href="brand-details.php?brand_id=<?php echo $row['brand_id']; ?>" class="brand-card-link">
+                            <div class="brand-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="brand-image">
+                                    <img src="<?php echo $row['b_image']; ?>" alt="<?php echo $row['brand_name']; ?>"
+                                        class="img-fluid rounded">
+                                </div>
+                                <div class="brand-content">
+                                    <h3><?php echo $row['brand_name']; ?></h3>
+                                </div>
                             </div>
-                            <div class="brand-content">
-                                <h3><?php echo $row['brand_name']; ?></h3>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
                 <?php endwhile; ?>
             </div>
         </div>
     </section>
     <!-- Ends Brands -->
-
 
 
     <!-- Tabs Section -->
@@ -350,96 +307,48 @@ if (!$result) {
                 <div class="col-lg-8">
                     <div class="swiper init-swiper-tabs">
                         <script type="application/json" class="swiper-config">
-                        {
-                            "loop": true,
-                            "speed": 600,
-                            "autoHeight": true,
-                            "autoplay": {
-                                "delay": 5000
-                            },
-                            "slidesPerView": "auto",
-                            "pagination": {
-                                "el": ".swiper-pagination",
-                                "type": "bullets",
-                                "clickable": true
-                            },
-                            "breakpoints": {
-                                "320": {
-                                    "slidesPerView": 1,
-                                    "spaceBetween": 40
+                            {
+                                "loop": true,
+                                "speed": 600,
+                                "autoHeight": true,
+                                "autoplay": {
+                                    "delay": 5000
                                 },
-                                "1200": {
-                                    "slidesPerView": 1,
-                                    "spaceBetween": 1
+                                "slidesPerView": "auto",
+                                "pagination": {
+                                    "el": ".swiper-pagination",
+                                    "type": "bullets",
+                                    "clickable": true
+                                },
+                                "breakpoints": {
+                                    "320": {
+                                        "slidesPerView": 1,
+                                        "spaceBetween": 40
+                                    },
+                                    "1200": {
+                                        "slidesPerView": 1,
+                                        "spaceBetween": 1
+                                    }
                                 }
                             }
-                        }
                         </script>
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <!-- <img src="assets/img/img_h_1.jpg" alt="Image" class="img-fluid"> -->
-                                <div class="p-4">
-                                    <h3 class="text-black h5 mb-3">Sales & Marketing</h3>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <p>
-                                                Our comprehensive sales and marketing services are designed to unlock
-                                                new revenue streams for businesses operating in Bangladesh. We achieve
-                                                this by ensuring widespread product distribution across all relevant
-                                                channels throughout the country.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <img src="assets/img/img_h_1.jpg" alt="Image" class="img-fluid">
                             </div>
                             <div class="swiper-slide">
-                                <!-- <img src="assets/img/img_h_2.jpg" alt="Image" class="img-fluid"> -->
-                                <div class="p-4">
-                                    <h3 class="text-black h5 mb-3">Distribution & Logistics</h3>
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <p>
-                                                With our 360-degree distribution and logistics system, we possess the
-                                                capability to deliver products to any location in the country within 48
-                                                hours, ensuring timely and efficient delivery. </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <img src="assets/img/img_h_2.jpg" alt="Image" class="img-fluid">
                             </div>
                             <div class="swiper-slide">
-                                <!-- <img src="assets/img/img_h_3.jpg" alt="Image" class="img-fluid"> -->
-                                <div class="p-4">
-                                    <h3 class="text-black h5 mb-3">Exchange</h3>
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <p>
-                                                Our trading solutions connect businesses to valuable resources from
-                                                around the world. This enriches and diversifies the product offerings of
-                                                various companies. </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <img src="assets/img/img_h_3.jpg" alt="Image" class="img-fluid">
                             </div>
                             <div class="swiper-slide">
-                                <!-- <img src="assets/img/img_h_4.jpg" alt="Image" class="img-fluid"> -->
-                                <div class="p-4">
-                                    <h3 class="text-black h5 mb-3">Quality</h3>
-                                    <div class="row">
-                                        <div class="col-lg-8">
-                                            <p>
-                                                We maintain our commitment to quality through regular audits and
-                                                rigorous follow-up procedures for all activities, adhering to our
-                                                well-defined quality manual and the Standard Operating Procedures (SOP),
-                                                which serve as the bedrock of Artisan's operational standards.
-                                        </div>
-                                    </div>
-                                </div>
+                                <img src="assets/img/img_h_4.jpg" alt="Image" class="img-fluid">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section><!-- /Tabs Section -->
 
@@ -456,23 +365,23 @@ if (!$result) {
             <div class="row gy-4 justify-content-center">
 
                 <?php
-      $query = "SELECT * FROM product LIMIT 15"; // Fetch 15 products
-      $result = $conn->query($query);
+                $query = "SELECT * FROM product LIMIT 15"; // Fetch 15 products
+                $result = $conn->query($query);
 
-      while ($row = $result->fetch_assoc()):
-      ?>
-                <div class="col-lg-2-4 col-md-4 col-sm-6">
-                    <a href="product_details.php?id=<?php echo $row['product_id']; ?>" class="product-card"
-                        data-aos="fade-up" data-aos-delay="100">
-                        <div class="image-container">
-                            <img src="admin/uploads/products/<?php echo $row['p_image1']; ?>"
-                                alt="<?php echo $row['product_title']; ?>" class="img-fluid">
-                        </div>
-                        <div class="product-content text-center mt-2">
-                            <h8><?php echo $row['product_title']; ?></h8>
-                        </div>
-                    </a>
-                </div>
+                while ($row = $result->fetch_assoc()):
+                ?>
+                    <div class="col-lg-2-4 col-md-4 col-sm-6">
+                        <a href="product_details.php?id=<?php echo $row['product_id']; ?>" class="product-card"
+                            data-aos="fade-up" data-aos-delay="100">
+                            <div class="image-container">
+                                <img src="admin/uploads/products/<?php echo $row['p_image1']; ?>"
+                                    alt="<?php echo $row['product_title']; ?>" class="img-fluid">
+                            </div>
+                            <div class="product-content text-center mt-2">
+                                <h8><?php echo $row['product_title']; ?></h8>
+                            </div>
+                        </a>
+                    </div>
                 <?php endwhile; ?>
 
             </div>
@@ -480,274 +389,195 @@ if (!$result) {
     </section>
     <!-- End Product Section -->
 
-
-
-
-    <!-- Services 2 Section -->
-    <section id="services-2" class="services-2 section">
-
-        <div class="container">
-            <div class="row justify-content-center" data-aos="fade-up">
-                <div class="col-md-6 col-lg-4">
-                    <span class="content-subtitle">Our Services</span>
-                    <h2 class="content-title">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia
-                    </h2>
-                    <p class="lead">
-                        Far far away, behind the word mountains, far from the countries
-                        Vokalia and Consonantia, there live the blind texts.
-                    </p>
-                    <p class="mb-5">
-                        Separated they live in Bookmarksgrove right at the coast of the
-                        Semantics, a large language ocean.
-                    </p>
-                    <p>
-                        <a href="#" class="btn btn-get-started">Get Started</a>
-                    </p>
-                </div>
-                <div class="col-md-6 col-lg-6 ps-lg-5">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <div class="services-item" data-aos="fade-up" data-aos-delay="">
-                                <div class="services-icon">
-                                    <i class="bi bi-search"></i>
-                                </div>
-                                <div>
-                                    <h3>Square</h3>
-                                    <p>Separated they live in Bookmarksgrove right at the coast</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <div class="services-item" data-aos="fade-up" data-aos-delay="100">
-                                <div class="services-icon">
-                                    <i class="bi bi-command"></i>
-                                </div>
-                                <div>
-                                    <h3>Technology</h3>
-                                    <p>Separated they live in Bookmarksgrove right at the coast</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <div class="services-item" data-aos="fade-up" data-aos-delay="200">
-                                <div class="services-icon">
-                                    <i class="bi bi-grid"></i>
-                                </div>
-                                <div>
-                                    <h3>Brilliant Ideas</h3>
-                                    <p>Separated they live in Bookmarksgrove right at the coast</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <div class="services-item" data-aos="fade-up" data-aos-delay="300">
-                                <div class="services-icon">
-                                    <i class="bi bi-globe"></i>
-                                </div>
-                                <div>
-                                    <h3>Blueprint</h3>
-                                    <p>Separated they live in Bookmarksgrove right at the coast</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- /Services 2 Section -->
-
 </main>
 
 <style>
-.swiper-slide {
-    display: flex;
-    align-items: center;
-}
-
-.slide-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-.slide-content {
-    padding-left: 30px;
-}
-
-.slide-content h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.slide-content p {
-    font-size: 1.2em;
-    line-height: 1.6;
-}
-
-/* Ensure pagination is centered */
-.swiper-pagination {
-    display: flex !important;
-    justify-content: center !important;
-    margin-top: 20px;
-    margin-left: 50%;
-    width: 100% !important;
-}
-
-/* Custom width for 5 items per row on large screens */
-.col-lg-2-4 {
-    flex: 0 0 20%;
-    /* 20% width for each item */
-    max-width: 20%;
-}
-
-/* Product card styles */
-.product-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid transparent;
-    /* Transparent border initially */
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
-    /* Subtle shadow */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    background-color: #fff;
-    height: 100%;
-    position: relative;
-    /* Needed for pseudo-element */
-    overflow: hidden;
-    /* Ensures pseudo-element stays within bounds */
-}
-
-/* Hover effect for card shadow and slight lift */
-.product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2);
-}
-
-/* Dynamic border effect using pseudo-element */
-.product-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    border: 2px solid green;
-    /* Green border effect */
-    z-index: 1;
-    pointer-events: none;
-    /* Ensure no interaction */
-    clip-path: circle(0% at 50% 50%);
-    /* Initially hidden */
-    transition: clip-path 0.3s ease-out;
-    /* Smooth transition */
-}
-
-/* Expand border from the cursor position on hover */
-.product-card:hover::before {
-    clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
-}
-
-/* Image container styles */
-.image-container {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease-in-out;
-}
-
-/* Zoom effect on hover */
-.image-container:hover img {
-    transform: scale(1.1);
-}
-
-/* Title styling */
-.product-content h8 {
-    font-size: 12px;
-    text-transform: capitalize;
-    color: #333;
-    margin: 0;
-}
-
-.product-content h8:hover {
-    color: #007bff;
-}
-
-/* Custom column width for 5 per row */
-.col-lg-2-4 {
-    flex: 0 0 20%;
-    max-width: 20%;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .col-lg-2-4 {
-        flex: 0 0 33.33%;
-        max-width: 33.33%;
+    .swiper-slide {
+        display: flex;
+        align-items: center;
     }
-}
 
-@media (max-width: 576px) {
-    .col-lg-2-4 {
-        flex: 0 0 50%;
-        max-width: 50%;
+    .slide-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
     }
-}
+
+    .slide-content {
+        padding-left: 30px;
+    }
+
+    .slide-content h2 {
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    .slide-content p {
+        font-size: 1.2em;
+        line-height: 1.6;
+    }
+
+    /* Ensure pagination is centered */
+    .swiper-pagination {
+        display: flex !important;
+        justify-content: center !important;
+        margin-top: 20px;
+        margin-left: 50%;
+        width: 100% !important;
+    }
+
+    /* Custom width for 5 items per row on large screens */
+    .col-lg-2-4 {
+        flex: 0 0 20%;
+        /* 20% width for each item */
+        max-width: 20%;
+    }
+
+    /* Product card styles */
+    .product-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border: 2px solid transparent;
+        /* Transparent border initially */
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+        /* Subtle shadow */
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        background-color: #fff;
+        height: 100%;
+        position: relative;
+        /* Needed for pseudo-element */
+        overflow: hidden;
+        /* Ensures pseudo-element stays within bounds */
+    }
+
+    /* Hover effect for card shadow and slight lift */
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 6px 12px rgba(0, 123, 255, 0.2);
+    }
+
+    /* Dynamic border effect using pseudo-element */
+    .product-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        border: 2px solid green;
+        /* Green border effect */
+        z-index: 1;
+        pointer-events: none;
+        /* Ensure no interaction */
+        clip-path: circle(0% at 50% 50%);
+        /* Initially hidden */
+        transition: clip-path 0.3s ease-out;
+        /* Smooth transition */
+    }
+
+    /* Expand border from the cursor position on hover */
+    .product-card:hover::before {
+        clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
+    }
+
+    /* Image container styles */
+    .image-container {
+        width: 100%;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* Zoom effect on hover */
+    .image-container:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Title styling */
+    .product-content h8 {
+        font-size: 12px;
+        text-transform: capitalize;
+        color: #333;
+        margin: 0;
+    }
+
+    .product-content h8:hover {
+        color: #007bff;
+    }
+
+    /* Custom column width for 5 per row */
+    .col-lg-2-4 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .col-lg-2-4 {
+            flex: 0 0 33.33%;
+            max-width: 33.33%;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .col-lg-2-4 {
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
 </style>
 
 <script>
-const imageSwiper = new Swiper('.image-swiper', {
-    loop: true,
-    autoplay: {
-        delay: 5000,
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-});
-
-const textSwiper = new Swiper('.text-swiper', {
-    loop: true,
-    autoplay: {
-        delay: 5000,
-    },
-});
-
-// Synchronize both Swipers
-imageSwiper.on('slideChange', () => {
-    textSwiper.slideTo(imageSwiper.realIndex);
-});
-
-textSwiper.on('slideChange', () => {
-    imageSwiper.slideTo(textSwiper.realIndex);
-});
-
-document.querySelectorAll('.product-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--x', `${x}px`);
-        card.style.setProperty('--y', `${y}px`);
+    const imageSwiper = new Swiper('.image-swiper', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
     });
-});
+
+    const textSwiper = new Swiper('.text-swiper', {
+        loop: true,
+        autoplay: {
+            delay: 5000,
+        },
+    });
+
+    // Synchronize both Swipers
+    imageSwiper.on('slideChange', () => {
+        textSwiper.slideTo(imageSwiper.realIndex);
+    });
+
+    textSwiper.on('slideChange', () => {
+        imageSwiper.slideTo(textSwiper.realIndex);
+    });
+
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--x', `${x}px`);
+            card.style.setProperty('--y', `${y}px`);
+        });
+    });
 </script>
 
 <?php include('footer.php'); ?>
