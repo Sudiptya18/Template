@@ -2984,6 +2984,7 @@ body {
 }
 
 .container {
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -3136,7 +3137,8 @@ body {
 }
 
 .card {
-  height: 450px; /* Adjust height as needed */
+  width: 480px;
+  height: auto; /* Adjust height as needed */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -3303,5 +3305,68 @@ body {
   font-size: 24px;
   font-weight: 700;
   color: #333;
+}
+
+/* Career Section */
+.career .intro h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.career .intro p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.career-card {
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.career-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.career-card .card-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.career-card .card-text {
+  font-size: 1rem;
+  color: #666;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-details {
+  background-color: #3498db;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-details:hover {
+  background-color: #2874a6;
+}
+
+.btn-apply {
+  background-color: #27ae60;
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-apply:hover {
+  background-color: #1e8449;
 }
 

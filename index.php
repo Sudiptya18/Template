@@ -17,7 +17,7 @@ include 'admin/connection.php';
                                 "loop": true,
                                 "speed": 600,
                                 "autoplay": {
-                                    "delay": 5000
+                                    "delay": 3000
                                 },
                                 "slidesPerView": "auto",
                                 "pagination": {
@@ -44,20 +44,18 @@ include 'admin/connection.php';
                                     <img src="assets/img/Slider/all.png" alt="Image" class="img-fluid">
                                 </div>
                                 <div class="slide-content ml-4" style="flex: 1;">
-                                    <h2>AXE</h2>
-                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and
-                                        Consonantia...</p>
+                                    <h2>UNILEVER INTERNATIONAL</h2>
+                                    <p>Making sustainable living commonplace</p>
                                 </div>
                             </div>
                             <!-- Slide 2 -->
                             <div class="swiper-slide d-flex align-items-center">
                                 <div class="slide-image" style="flex: 1.5;">
-                                    <img src="assets/img/Slider/stives.png" alt="Image" class="img-fluid">
+                                    <img src="assets/img/Slider/bru.png" alt="Image" class="img-fluid">
                                 </div>
                                 <div class="slide-content ml-4" style="flex: 1;">
-                                    <h2>Lorem Ipsum Dolor Sit Amet</h2>
-                                    <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-                                        large language ocean...</p>
+                                    <h2>BRU COFFEE</h2>
+                                    <p>Bru Instant with the aroma of freshly roasted coffee beans.</p>
                                 </div>
                             </div>
                             <!-- Slide 3 -->
@@ -66,20 +64,18 @@ include 'admin/connection.php';
                                     <img src="assets/img/Slider/axe.png" alt="Image" class="img-fluid">
                                 </div>
                                 <div class="slide-content ml-4" style="flex: 1;">
-                                    <h2>Ut Enim ad Minim Veniam</h2>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary
-                                        regelialia...</p>
+                                    <h2>AXE BODY SPRAY</h2>
+                                    <p>When you smell good, good things happens</p>
                                 </div>
                             </div>
                             <!-- Slide 3 -->
                             <div class="swiper-slide d-flex align-items-center">
                                 <div class="slide-image" style="flex: 1.5;">
-                                    <img src="assets/img/Slider/bru.png" alt="Image" class="img-fluid">
+                                    <img src="assets/img/Slider/stives.png" alt="Image" class="img-fluid">
                                 </div>
                                 <div class="slide-content ml-4" style="flex: 1;">
-                                    <h2>Ut Enim ad Minim Veniam</h2>
-                                    <p>A small river named Duden flows by their place and supplies it with the necessary
-                                        regelialia...</p>
+                                    <h2>ST. IVES SCRUB</h2>
+                                    <p>Keep calm, soothe on!</p>
                                 </div>
                             </div>
                         </div>
@@ -242,6 +238,7 @@ include 'admin/connection.php';
         <div class="container">
             <div class="row gap-x-lg-4 justify-content-between">
                 <div class="col-lg-4 js-custom-dots">
+                    <h1 data-aos="fade-up">Our Mission</h1>
                     <a href="#" class="service-item link horizontal d-flex active" data-aos="fade-left"
                         data-aos-delay="0">
                         <div class="service-icon color-1 mb-4">
@@ -538,6 +535,9 @@ include 'admin/connection.php';
             flex: 0 0 50%;
             max-width: 50%;
         }
+    }
+    .h1 {
+        padding: 30px;
     }
 </style>
 

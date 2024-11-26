@@ -75,7 +75,7 @@
                         </ul>
                     </li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="blog.html">Career</a></li>
+                    <li><a href="career.php">Career</a></li>
                     <!-- <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="#">Dropdown 1</a></li>
