@@ -755,7 +755,7 @@ section,
 
 .about .swiper-pagination .swiper-pagination-bullet {
   margin: 0 5px;
-  background: #ffffff;
+  background: #69e97a;
   opacity: 0.3;
 }
 
@@ -2802,11 +2802,6 @@ section,
   --color-neutral-white: #fff;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-
 
 /* Sidebar Styling */
 .sidebar .widgets-container {
@@ -2897,12 +2892,6 @@ blockquote p {
   font-size: 1.1rem;
 }
 
-/* General Adjustments */
-body {
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-
 :root {
   --card-bg-color: #ffffff;
   --card-hover-shadow: rgba(0, 0, 0, 0.2);
@@ -2981,10 +2970,10 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 
 .container {
-  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -3368,5 +3357,18 @@ body {
 
 .btn-apply:hover {
   background-color: #1e8449;
+}
+
+.bside {
+  text-align: center;
+  border-left: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.containers {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 50px;
 }
 

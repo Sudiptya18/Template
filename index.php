@@ -236,9 +236,9 @@ include 'admin/connection.php';
     <section id="tabs" class="tabs section light-background">
 
         <div class="container">
-            <div class="row gap-x-lg-4 justify-content-between">
+            <h1 class="bside" data-aos="fade-up">Our Mission</h1>
+            <div class="row">
                 <div class="col-lg-4 js-custom-dots">
-                    <h1 data-aos="fade-up">Our Mission</h1>
                     <a href="#" class="service-item link horizontal d-flex active" data-aos="fade-left"
                         data-aos-delay="0">
                         <div class="service-icon color-1 mb-4">
@@ -536,6 +536,7 @@ include 'admin/connection.php';
             max-width: 50%;
         }
     }
+
     .h1 {
         padding: 30px;
     }
