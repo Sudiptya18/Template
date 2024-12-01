@@ -26,7 +26,16 @@ $products_query = "SELECT p.product_id, p.sku_name, p.product_title, p.global_co
                     LEFT JOIN categories c ON p.categories_id = c.categories_id
                     LEFT JOIN country_of_origin o ON p.origin_id = o.origin_id
                     LEFT JOIN format f ON p.format_id = f.format_id";
+$products_query2 = "SELECT p.product_id, p.sku_name, p.product_title, p.global_code, p.description, p.pack_size, 
+                    p.brand_id, p.categories_id, p.format_id, p.origin_id, p.p_image1, p.p_image2, p.active,
+                    b.brand_name, c.category_name, o.origin_name, f.format_name 
+             FROM product p
+             LEFT JOIN brands b ON p.brand_id = b.brand_id
+             LEFT JOIN categories c ON p.categories_id = c.categories_id
+             LEFT JOIN country_of_origin o ON p.origin_id = o.origin_id
+             LEFT JOIN format f ON p.format_id = f.format_id";
 $products_result = mysqli_query($conn, $products_query);
+$products_result2 = mysqli_query($conn, $products_query2);
 ?>
 
 <body data-sveltekit-preload-data="hover" data-new-gr-c-s-check-loaded="14.1209.0" data-gr-ext-installed=""
@@ -57,8 +66,8 @@ $products_result = mysqli_query($conn, $products_query);
                                                 <select class="nice-select bg-white" style="display: none">
                                                     <option value="0">All</option>
                                                     <?php while ($origin = mysqli_fetch_assoc($origin_result)) { ?>
-                                                        <option value="<?php echo $origin['origin_id']; ?>">
-                                                            <?php echo $origin['origin_name']; ?></option>
+                                                    <option value="<?php echo $origin['origin_id']; ?>">
+                                                        <?php echo $origin['origin_name']; ?></option>
                                                     <?php } ?>
                                                 </select>
                                                 <div class="nice-select bg-white" tabindex="0">
@@ -66,8 +75,8 @@ $products_result = mysqli_query($conn, $products_query);
                                                     <ul class="list">
                                                         <li data-value="0" class="option selected">All</li>
                                                         <?php while ($origin = mysqli_fetch_assoc($origin_result)) { ?>
-                                                            <li data-value="<?php echo $origin['origin_id']; ?>"
-                                                                class="option"><?php echo $origin['origin_name']; ?></li>
+                                                        <li data-value="<?php echo $origin['origin_id']; ?>"
+                                                            class="option"><?php echo $origin['origin_name']; ?></li>
                                                         <?php } ?>
                                                     </ul>
                                                 </div>
@@ -82,11 +91,11 @@ $products_result = mysqli_query($conn, $products_query);
                                             <div class="main-body">
                                                 <ul class="style-none filter-input">
                                                     <?php while ($brand = mysqli_fetch_assoc($brands_result)) { ?>
-                                                        <li>
-                                                            <input type="checkbox" name="brand[]"
-                                                                value="<?php echo $brand['brand_id']; ?>" />
-                                                            <label for=""><?php echo $brand['brand_name']; ?></label>
-                                                        </li>
+                                                    <li>
+                                                        <input type="checkbox" name="brand[]"
+                                                            value="<?php echo $brand['brand_id']; ?>" />
+                                                        <label for=""><?php echo $brand['brand_name']; ?></label>
+                                                    </li>
                                                     <?php } ?>
                                                 </ul>
                                             </div>
@@ -100,11 +109,11 @@ $products_result = mysqli_query($conn, $products_query);
                                             <div class="main-body">
                                                 <ul class="style-none filter-input">
                                                     <?php while ($category = mysqli_fetch_assoc($categories_result)) { ?>
-                                                        <li>
-                                                            <input type="checkbox" name="category[]"
-                                                                value="<?php echo $category['categories_id']; ?>" />
-                                                            <label for=""><?php echo $category['category_name']; ?></label>
-                                                        </li>
+                                                    <li>
+                                                        <input type="checkbox" name="category[]"
+                                                            value="<?php echo $category['categories_id']; ?>" />
+                                                        <label for=""><?php echo $category['category_name']; ?></label>
+                                                    </li>
                                                     <?php } ?>
                                                 </ul>
                                             </div>
@@ -118,11 +127,11 @@ $products_result = mysqli_query($conn, $products_query);
                                             <div class="main-body">
                                                 <ul class="style-none filter-input">
                                                     <?php while ($format = mysqli_fetch_assoc($format_result)) { ?>
-                                                        <li>
-                                                            <input type="checkbox" name="format[]"
-                                                                value="<?php echo $format['format_id']; ?>" />
-                                                            <label for=""><?php echo $format['format_name']; ?></label>
-                                                        </li>
+                                                    <li>
+                                                        <input type="checkbox" name="format[]"
+                                                            value="<?php echo $format['format_id']; ?>" />
+                                                        <label for=""><?php echo $format['format_name']; ?></label>
+                                                    </li>
                                                     <?php } ?>
                                                 </ul>
                                                 <div class="more-btn">
@@ -159,48 +168,48 @@ $products_result = mysqli_query($conn, $products_query);
                                 </div>
                                 <div class="accordion-box list-style show" id="list-btn">
                                     <?php while ($product = mysqli_fetch_assoc($products_result)) { ?>
-                                        <div class="job-list-one style-two position-relative border-style mb-20">
-                                            <div class="row justify-content-between align-items-center">
-                                                <div class="col-md-5">
-                                                    <div class="job-title d-flex align-items-center">
+                                    <div class="job-list-one style-two position-relative border-style mb-20">
+                                        <div class="row justify-content-between align-items-center">
+                                            <div class="col-md-5">
+                                                <div class="job-title d-flex align-items-center">
+                                                    <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
+                                                        class="logo"><img
+                                                            src="admin/uploads/products/<?php echo $product['p_image1']; ?>"
+                                                            alt="<?php echo $product['brand_name']; ?>"
+                                                            class="lazy-img m-auto" /></a>
+                                                    <div class="split-box1">
+                                                        <a href="brand-details.php?id=<?php echo $brand['brand_id']; ?>"
+                                                            class="job-duration fw-500"><?php echo $product['brand_name']; ?></a>
                                                         <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
-                                                            class="logo"><img
-                                                                src="admin/uploads/products/<?php echo $product['p_image1']; ?>"
-                                                                alt="<?php echo $product['brand_name']; ?>"
-                                                                class="lazy-img m-auto" /></a>
-                                                        <div class="split-box1">
-                                                            <a href="brand-details.php?id=<?php echo $brand['brand_id']; ?>"
-                                                                class="job-duration fw-500"><?php echo $product['brand_name']; ?></a>
-                                                            <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
-                                                                class="title fw-500 tran3s"><?php echo $product['product_title']; ?></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 col-sm-6">
-                                                    <div class="job-location">
-                                                        <p><?php echo $product['origin_name']; ?></p>
-                                                    </div>
-                                                    <div class="job-salary">
-                                                        <span
-                                                            class="fw-500 text-dark"><?php echo $product['category_name']; ?></span>
-                                                        <br> <?php echo $product['format_name']; ?>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 col-sm-6">
-                                                    <div class="job-btn">
-                                                        <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
-                                                            class="btn-one tran3s">View Details</a>
+                                                            class="title fw-500 tran3s"><?php echo $product['product_title']; ?></a>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="col-md-4 col-sm-6">
+                                                <div class="job-location">
+                                                    <p><?php echo $product['origin_name']; ?></p>
+                                                </div>
+                                                <div class="job-salary">
+                                                    <span
+                                                        class="fw-500 text-dark"><?php echo $product['category_name']; ?></span>
+                                                    <br> <?php echo $product['format_name']; ?>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-6">
+                                                <div class="job-btn">
+                                                    <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
+                                                        class="btn-one tran3s">View Details</a>
+                                                </div>
+                                            </div>
                                         </div>
+                                    </div>
                                     <?php } ?>
                                 </div>
                                 <div class="accordion-box grid-style" id="grid-btn">
                                     <div class="row">
                                         <?php
                                         // Fetch the products and their related details
-                                        while ($product = mysqli_fetch_assoc($products_result)) {
+                                        while ($product = mysqli_fetch_assoc($products_result2)) {
                                             // Fetch associated data
                                             $brand_name = $product['brand_name'];
                                             $product_title = $product['product_title'];
@@ -210,37 +219,37 @@ $products_result = mysqli_query($conn, $products_query);
                                             $format_name = $product['format_name'];
                                             $p_image1 = $product['p_image1']; // Image 1 for the product
                                         ?>
-                                            <div class="col-sm-4 mb-30">
-                                                <div class="job-list-two style-two position-relative">
-                                                    <!-- Product Image -->
+                                        <div class="col-sm-4 mb-30">
+                                            <div class="job-list-two style-two position-relative">
+                                                <!-- Product Image -->
+                                                <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
+                                                    class="logo">
+                                                    <img src="admin/uploads/products/<?php echo $p_image1; ?>"
+                                                        alt="<?php echo $product_title; ?>" class="lazy-img m-auto" />
+                                                </a>
+                                                <!-- Product Details -->
+                                                <div>
                                                     <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
-                                                        class="logo">
-                                                        <img src="<?php echo $p_image1; ?>"
-                                                            alt="<?php echo $product_title; ?>" class="lazy-img m-auto" />
+                                                        class="job-duration fw-500">
+                                                        <?php echo $product_title; ?> (<?php echo $pack_size; ?>)
                                                     </a>
-                                                    <!-- Product Details -->
-                                                    <div>
-                                                        <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
-                                                            class="job-duration fw-500">
-                                                            <?php echo $product_title; ?> (<?php echo $pack_size; ?>)
+                                                </div>
+                                                <div class="job-salary">
+                                                    <span class="fw-500 text-dark"><?php echo $category_name; ?></span>
+                                                    <br> <?php echo $format_name; ?>
+                                                </div>
+                                                <div class="d-flex align-items-center justify-content-between mt-auto">
+                                                    <div class="job-location">
+                                                        <a
+                                                            href="product-details.php?id=<?php echo $product['product_id']; ?>">
+                                                            <?php echo $origin_name ?>
                                                         </a>
                                                     </div>
-                                                    <div class="job-salary">
-                                                        <span class="fw-500 text-dark"><?php echo $category_name; ?></span>
-                                                        <br> <?php echo $format_name; ?>
-                                                    </div>
-                                                    <div class="d-flex align-items-center justify-content-between mt-auto">
-                                                        <div class="job-location">
-                                                            <a
-                                                                href="product-details.php?id=<?php echo $product['product_id']; ?>">
-                                                                <?php echo $origin_name ?>
-                                                            </a>
-                                                        </div>
-                                                        <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
-                                                            class="apply-btn text-center tran3s">See Details</a>
-                                                    </div>
+                                                    <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
+                                                        class="apply-btn text-center tran3s">See Details</a>
                                                 </div>
                                             </div>
+                                        </div>
                                         <?php
                                         }
                                         ?>
@@ -265,20 +274,20 @@ $products_result = mysqli_query($conn, $products_query);
     </div>
 
     <script>
-        // JavaScript to toggle between list and grid views
-        document.querySelector('.list-btn').addEventListener('click', function() {
-            document.querySelector('.list-style').classList.add('show');
-            document.querySelector('.grid-style').classList.remove('show');
-            document.querySelector('.list-btn').classList.add('active');
-            document.querySelector('.grid-btn').classList.remove('active');
-        });
+    // JavaScript to toggle between list and grid views
+    document.querySelector('.list-btn').addEventListener('click', function() {
+        document.querySelector('.list-style').classList.add('show');
+        document.querySelector('.grid-style').classList.remove('show');
+        document.querySelector('.list-btn').classList.add('active');
+        document.querySelector('.grid-btn').classList.remove('active');
+    });
 
-        document.querySelector('.grid-btn').addEventListener('click', function() {
-            document.querySelector('.grid-style').classList.add('show');
-            document.querySelector('.list-style').classList.remove('show');
-            document.querySelector('.grid-btn').classList.add('active');
-            document.querySelector('.list-btn').classList.remove('active');
-        });
+    document.querySelector('.grid-btn').addEventListener('click', function() {
+        document.querySelector('.grid-style').classList.add('show');
+        document.querySelector('.list-style').classList.remove('show');
+        document.querySelector('.grid-btn').classList.add('active');
+        document.querySelector('.list-btn').classList.remove('active');
+    });
     </script>
 </body>
 
