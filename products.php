@@ -37,7 +37,10 @@ $products_query2 = "SELECT p.product_id, p.sku_name, p.product_title, p.global_c
 $products_result = mysqli_query($conn, $products_query);
 $products_result2 = mysqli_query($conn, $products_query2);
 ?>
-
+<head>
+<link href="assets/css/0._YIa9mqy.css" rel="stylesheet">
+<link href="assets/css/Preloader.BHFBcupA.css" rel="stylesheet">
+</head>
 <body data-sveltekit-preload-data="hover" data-new-gr-c-s-check-loaded="14.1209.0" data-gr-ext-installed=""
     style="overflow: visible">
     <div style="display: contents">
@@ -123,7 +126,7 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                     <div class="filter-block bottom-line pb-25 mt-25">
                                         <a class="filter-title fw-500 text-dark collapsed" data-bs-toggle="collapse"
                                             href="#collapseCategory" role="button" aria-expanded="false">Format</a>
-                                        <div class="collapse" id="collapseCategory">
+                                        <div class="collapse show" id="collapseCategory">
                                             <div class="main-body">
                                                 <ul class="style-none filter-input">
                                                     <?php while ($format = mysqli_fetch_assoc($format_result)) { ?>
@@ -134,9 +137,9 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                                     </li>
                                                     <?php } ?>
                                                 </ul>
-                                                <div class="more-btn">
+                                                <!-- <div class="more-btn">
                                                     <i class="bi bi-plus"></i> Show More
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +158,7 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <button
-                                            class="style-changer-btn text-center rounded-circle tran3s ms-2 list-btn"
+                                            class="style-changer-btn text-center rounded-circle tran3s ms-2 list-btn active"
                                             title="Active List">
                                             <i class="bi bi-list"></i>
                                         </button>
