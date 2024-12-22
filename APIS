@@ -1,0 +1,86 @@
+<?php
+require 'admin/connection.php';
+
+$wh_status = 0;
+$add_and = '';
+$count=0;
+$return_arr = array();
+$per_page = 10;
+
+// f.format_id ,o.origin_id,c.categories_id,b.brand_id
+
+if(!isset($_GET['page_id']) || $_GET['page_id'] == ""){
+    $page_ids = 0;    
+}else{
+    $page_ids = $_GET['page_id']*$per_page; 
+}
+
+if(!isset($_GET['brand']) || $_GET['brand'] == ""){
+    $brand_ids = "";    
+}else{
+    $brand_id = $conn->real_escape_string($_GET['brand']);
+    $brand_ids = "b.brand_id in ($brand_id)";
+    $wh_status++;
+}
+
+if(!isset($_GET['catagory']) || $_GET['catagory'] == ""){
+    $catagory_ids = "";  
+}else{
+    if($wh_status > 0){
+        $add_and = ' AND ';
+    }
+    $catagory_id = $_GET['catagory'];
+    $catagory_ids = $add_and."c.categories_id IN ($catagory_id)";
+    $wh_status++;
+}
+
+if(!isset($_GET['origin']) || $_GET['origin'] == ""){
+    $origin_ids = "";  
+}else{
+    if($wh_status > 0){
+        $add_and = ' AND ';
+    }
+    $origin_id = $_GET['origin'];
+    $origin_ids = $add_and."o.origin_id IN ($origin_id)";
+    $wh_status++;
+}
+
+
+if(!isset($_GET['format']) || $_GET['format'] == ""){
+    $format_ids = "";  
+}else{
+    if($wh_status > 0){
+        $add_and = ' AND ';
+    }
+    $format_id = $_GET['format'];
+    $format_ids = $add_and."f.format_id IN ($format_id)";
+    $wh_status++;
+}
+
+if($wh_status == 0){
+    $query = "SELECT p.product_id, p.sku_name, p.product_title, p.global_code, p.description, p.pack_size, 
+                p.brand_id, p.categories_id, p.format_id, p.origin_id, p.p_image1, p.p_image2, p.active,
+                b.brand_name, c.category_name, o.origin_name, f.format_name 
+            FROM product p
+                    LEFT JOIN brands b ON p.brand_id = b.brand_id
+                    LEFT JOIN categories c ON p.categories_id = c.categories_id
+                    LEFT JOIN country_of_origin o ON p.origin_id = o.origin_id
+                    LEFT JOIN format f ON p.format_id = f.format_id 
+            LIMIT $page_ids,$per_page";
+
+$count = "SELECT count(1) as page_count FROM product";
+}else{
+    $query = "SELECT p.product_id, p.sku_name, p.product_title, p.global_code, p.description, p.pack_size, 
+                    p.brand_id, p.categories_id, p.format_id, p.origin_id, p.p_image1, p.p_image2, p.active,
+                    b.brand_name, c.category_name, o.origin_name, f.format_name 
+            FROM product p
+                    LEFT JOIN brands b ON p.brand_id = b.brand_id
+                    LEFT JOIN categories c ON p.categories_id = c.categories_id
+                    LEFT JOIN country_of_origin o ON p.origin_id = o.origin_id
+                    LEFT JOIN format f ON p.format_id = f.format_id 
+            WHERE $brand_ids $catagory_ids $origin_ids $format_ids LIMIT $page_ids,$per_page";            
+}
+
+
+$result = $conn -> query($query);
+var_dump($result->fetch_assoc());

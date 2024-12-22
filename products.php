@@ -18,6 +18,16 @@ $format_query = "SELECT format_id, format_name FROM format";
 $format_result = mysqli_query($conn, $format_query);
 
 // Fetch products
+$products_count = "SELECT p.product_id, p.sku_name, p.product_title, p.global_code, p.description, p.pack_size, 
+                           p.brand_id, p.categories_id, p.format_id, p.origin_id, p.p_image1, p.p_image2, p.active,
+                           b.brand_name, c.category_name, o.origin_name, f.format_name 
+                    FROM product p
+                    LEFT JOIN brands b ON p.brand_id = b.brand_id
+                    LEFT JOIN categories c ON p.categories_id = c.categories_id
+                    LEFT JOIN country_of_origin o ON p.origin_id = o.origin_id
+                    LEFT JOIN format f ON p.format_id = f.format_id
+                    ORDER BY p.product_title";
+
 $products_query = "SELECT p.product_id, p.sku_name, p.product_title, p.global_code, p.description, p.pack_size, 
                            p.brand_id, p.categories_id, p.format_id, p.origin_id, p.p_image1, p.p_image2, p.active,
                            b.brand_name, c.category_name, o.origin_name, f.format_name 
@@ -25,7 +35,8 @@ $products_query = "SELECT p.product_id, p.sku_name, p.product_title, p.global_co
                     LEFT JOIN brands b ON p.brand_id = b.brand_id
                     LEFT JOIN categories c ON p.categories_id = c.categories_id
                     LEFT JOIN country_of_origin o ON p.origin_id = o.origin_id
-                    LEFT JOIN format f ON p.format_id = f.format_id";
+                    LEFT JOIN format f ON p.format_id = f.format_id
+                    ORDER BY p.product_title limit 0,10";
 $products_query2 = "SELECT p.product_id, p.sku_name, p.product_title, p.global_code, p.description, p.pack_size, 
                     p.brand_id, p.categories_id, p.format_id, p.origin_id, p.p_image1, p.p_image2, p.active,
                     b.brand_name, c.category_name, o.origin_name, f.format_name 
@@ -33,14 +44,17 @@ $products_query2 = "SELECT p.product_id, p.sku_name, p.product_title, p.global_c
              LEFT JOIN brands b ON p.brand_id = b.brand_id
              LEFT JOIN categories c ON p.categories_id = c.categories_id
              LEFT JOIN country_of_origin o ON p.origin_id = o.origin_id
-             LEFT JOIN format f ON p.format_id = f.format_id";
+             LEFT JOIN format f ON p.format_id = f.format_id limit 0,10";
 $products_result = mysqli_query($conn, $products_query);
+$products_counts = mysqli_query($conn, $products_count);
 $products_result2 = mysqli_query($conn, $products_query2);
 ?>
+
 <head>
-<link href="assets/css/0._YIa9mqy.css" rel="stylesheet">
-<link href="assets/css/Preloader.BHFBcupA.css" rel="stylesheet">
+    <link href="assets/css/0._YIa9mqy.css" rel="stylesheet">
+    <link href="assets/css/Preloader.BHFBcupA.css" rel="stylesheet">
 </head>
+
 <body data-sveltekit-preload-data="hover" data-new-gr-c-s-check-loaded="14.1209.0" data-gr-ext-installed=""
     style="overflow: visible">
     <div style="display: contents">
@@ -62,27 +76,22 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                     <!-- Country of Origin Filter -->
                                     <div class="filter-block bottom-line pb-25">
                                         <a class="filter-title fw-500 text-dark" data-bs-toggle="collapse"
-                                            href="#collapseLocation" role="button" aria-expanded="false">Country of
-                                            Origin</a>
+                                            href="#collapseLocation" role="button" aria-expanded="false">
+                                            Country of Origin
+                                        </a>
                                         <div class="collapse show" id="collapseLocation">
                                             <div class="main-body">
-                                                <select class="nice-select bg-white" style="display: none">
+                                                <select class="nice-select bg-white origin-dropdown product_check">
                                                     <option value="0">All</option>
-                                                    <?php while ($origin = mysqli_fetch_assoc($origin_result)) { ?>
+                                                    <?php
+                                                    if (mysqli_num_rows($origin_result) > 0) {
+                                                        while ($origin = mysqli_fetch_assoc($origin_result)) { ?>
                                                     <option value="<?php echo $origin['origin_id']; ?>">
-                                                        <?php echo $origin['origin_name']; ?></option>
-                                                    <?php } ?>
+                                                        <?php echo $origin['origin_name']; ?>
+                                                    </option>
+                                                    <?php }
+                                                    } ?>
                                                 </select>
-                                                <div class="nice-select bg-white" tabindex="0">
-                                                    <span class="current">ALL</span>
-                                                    <ul class="list">
-                                                        <li data-value="0" class="option selected">All</li>
-                                                        <?php while ($origin = mysqli_fetch_assoc($origin_result)) { ?>
-                                                        <li data-value="<?php echo $origin['origin_id']; ?>"
-                                                            class="option"><?php echo $origin['origin_name']; ?></li>
-                                                        <?php } ?>
-                                                    </ul>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -92,11 +101,11 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                             href="#collapseJobType" role="button" aria-expanded="false">Brands</a>
                                         <div class="collapse show" id="collapseJobType">
                                             <div class="main-body">
-                                                <ul class="style-none filter-input">
+                                                <ul class="style-none filter-input" id="brand">
                                                     <?php while ($brand = mysqli_fetch_assoc($brands_result)) { ?>
                                                     <li>
-                                                        <input type="checkbox" name="brand[]"
-                                                            value="<?php echo $brand['brand_id']; ?>" />
+                                                        <input class="product_check brand" type="checkbox"
+                                                            name="brand[]" value="<?php echo $brand['brand_id']; ?>" />
                                                         <label for=""><?php echo $brand['brand_name']; ?></label>
                                                     </li>
                                                     <?php } ?>
@@ -110,10 +119,11 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                             href="#collapseExp" role="button" aria-expanded="false">Categories</a>
                                         <div class="collapse show" id="collapseExp">
                                             <div class="main-body">
-                                                <ul class="style-none filter-input">
+                                                <ul class="style-none filter-input" id="category">
                                                     <?php while ($category = mysqli_fetch_assoc($categories_result)) { ?>
                                                     <li>
-                                                        <input type="checkbox" name="category[]"
+                                                        <input class="product_check category" type="checkbox"
+                                                            name="category[]"
                                                             value="<?php echo $category['categories_id']; ?>" />
                                                         <label for=""><?php echo $category['category_name']; ?></label>
                                                     </li>
@@ -128,10 +138,10 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                             href="#collapseCategory" role="button" aria-expanded="false">Format</a>
                                         <div class="collapse show" id="collapseCategory">
                                             <div class="main-body">
-                                                <ul class="style-none filter-input">
+                                                <ul class="style-none filter-input" id="format">
                                                     <?php while ($format = mysqli_fetch_assoc($format_result)) { ?>
                                                     <li>
-                                                        <input type="checkbox" name="format[]"
+                                                        <input class="product_check" type="checkbox" name="format[]"
                                                             value="<?php echo $format['format_id']; ?>" />
                                                         <label for=""><?php echo $format['format_name']; ?></label>
                                                     </li>
@@ -143,8 +153,8 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="" class="btn-ten fw-500 text-white w-100 text-center tran3s mt-30">Apply
-                                        Filter</a>
+                                    <!-- <a href="" class="btn-ten fw-500 text-white w-100 text-center tran3s mt-30">Apply
+                                        Filter</a> -->
                                 </div>
                             </div>
                         </div>
@@ -153,7 +163,7 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                 <div class="upper-filter d-flex justify-content-between align-items-center mb-20">
                                     <div class="total-job-found">
                                         Total <span
-                                            class="text-dark"><?php echo mysqli_num_rows($products_result); ?></span>
+                                            class="text-dark prod_count"><?php echo mysqli_num_rows($products_counts); ?></span>
                                         Products found
                                     </div>
                                     <div class="d-flex align-items-center">
@@ -263,8 +273,12 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                 <div class="pagination-area text-center">
                                     <ul class="pagination">
                                         <li><a href="#">Previous</a></li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
+                                        <?php
+                                        for ($x = 0; $x <= mysqli_num_rows($products_counts)/10; $x++) {
+                                            $n=$x+1;
+                                            echo "<li><a href='javascript:void(0)' class='page-link' data-page= '$n'>$n</a></li>";
+                                          }
+                                        ?>
                                         <li><a href="#">Next</a></li>
                                     </ul>
                                 </div>
@@ -273,10 +287,14 @@ $products_result2 = mysqli_query($conn, $products_query2);
                     </div>
                 </div>
             </section>
+
+            <div id="div1">
+
+            </div>
         </div>
     </div>
 
-    <script>
+    <!-- <script type="text/JavaScript">
     // JavaScript to toggle between list and grid views
     document.querySelector('.list-btn').addEventListener('click', function() {
         document.querySelector('.list-style').classList.add('show');
@@ -291,7 +309,156 @@ $products_result2 = mysqli_query($conn, $products_query2);
         document.querySelector('.grid-btn').classList.add('active');
         document.querySelector('.list-btn').classList.remove('active');
     });
-    </script>
-</body>
+    </script> -->
+    <!-- <script>
+    $(document).ready(function() {
 
-<?php include('footer.php'); ?>
+        $(".product_check").change(function() {
+            var brand = get_filter_text('brand');
+            var category = get_filter_text('category');
+            var format = get_filter_text('format');
+            var origin = $('.origin-dropdown').val();
+            var page_id = 0;
+
+            $.ajax({
+                url: "product-api2.php",
+                method: 'POST',
+                data: {
+                    action: 1,
+                    origin: origin,
+                    brand: brand,
+                    category: category,
+                    format: format,
+                    page_id: page_id
+                },
+                success: function(response) {
+                    var data = JSON.parse(response);
+                    $("#list-btn").html(data.prod);
+                    $(".prod_count").html(data.total_prod)
+                    // $("#grid-btn").html(response);
+                    $.each(data.total_page, function(key, val) {
+                        console.log(key + "" + value)
+                    });
+                }
+            });
+        });
+
+        function get_filter_text(text_id) {
+            var filterData = [];
+            $('#' + text_id + ' input:checked').each(function() {
+                filterData.push($(this).val());
+            });
+            return filterData;
+        }
+
+        function paginate(total_prod) {
+            var output = '';
+            $.each(total_prod, function(index, value) {
+                alert('aaa')
+                output += '<li>' + value + '</li>'; // Add each item to output
+            });
+            $('.pagination').html(output); // Insert the result into the container
+        }
+
+    });
+    </script> -->
+    <script>
+    $(document).ready(function() {
+
+        $(".product_check").change(function() {
+            fetch_product();
+        });
+
+        function get_filter_text(text_id) {
+            var filterData = [];
+            $('#' + text_id + ' input:checked').each(function() {
+                filterData.push($(this).val());
+            });
+            return filterData;
+        }
+
+        function paginate(total_pages, current) {
+            var output = '';
+            var active = '';
+            // Loop to create pagination links based on total pages
+            for (var i = 1; i <= total_pages; i++) {
+                console.log(current+" is current & i ="+i)
+                var act = (i==current)?'active':'';
+                
+                output += '<li><a href="javascript:void(0);" class="page-link ' + act + '" data-page="' + i +
+                    '">' + i +
+                    '</a></li>';
+            }
+
+            // Insert pagination links into the container
+            $('.pagination').html(output);
+
+            // Add click event for page links
+            $(".page-link").click(function() {
+                var page = $(this).data('page'); // Get the page number clicked
+                loadPage(
+                    page
+                ); // Load the page content (you can create this function for page-specific loading)
+            });
+        }
+
+        function loadPage(page_id) {
+            // Implement logic to load products based on the selected page_id
+            var brand = get_filter_text('brand');
+            var category = get_filter_text('category');
+            var format = get_filter_text('format');
+            var origin = $('.origin-dropdown').val();
+
+            $.ajax({
+                url: "product-api2.php",
+                method: 'POST',
+                data: {
+                    action: 1,
+                    origin: origin,
+                    brand: brand,
+                    category: category,
+                    format: format,
+                    page_id: page_id
+                },
+                success: function(response) {
+                    var data = JSON.parse(response);
+                    $("#list-btn").html(data.prod); // Update product list
+                    $(".prod_count").html(data.total_prod); // Update product count
+                    paginate(data.total_page,data.page_no); // Update pagination
+                }
+            });
+        }
+
+
+        function fetch_product() {
+            var brand = get_filter_text('brand');
+            var category = get_filter_text('category');
+            var format = get_filter_text('format');
+            var origin = $('.origin-dropdown').val();
+            var page_id = 1;
+
+            $.ajax({
+                url: "product-api2.php",
+                method: 'POST',
+                data: {
+                    action: 1,
+                    origin: origin,
+                    brand: brand,
+                    category: category,
+                    format: format,
+                    page_id: page_id
+                },
+                success: function(response) {
+                    var data = JSON.parse(response);
+                    $("#list-btn").html(data.prod); // Display product listings
+                    $(".prod_count").html(data.total_prod); // Display total products count
+                    paginate(data.total_page, data.page_no); // Generate pagination\
+                }
+            });
+        }
+        fetch_product();
+
+    });
+    </script>
+
+    <?php include('footer.php'); ?>
