@@ -158,8 +158,6 @@ if ($result && $result->num_rows > 0) {
                     </div>
                 </section>
             </div>
-
-            <?php include('footer.php'); ?>
         </div>
     </div>
-</body>
+    <?php include('footer.php'); ?>

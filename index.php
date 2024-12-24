@@ -368,7 +368,7 @@ include 'admin/connection.php';
                 while ($row = $result->fetch_assoc()):
                 ?>
                     <div class="col-lg-2-4 col-md-4 col-sm-6">
-                        <a href="product_details.php?id=<?php echo $row['product_id']; ?>" class="product-card"
+                        <a href="product-details.php?id=<?php echo $row['product_id']; ?>" class="product-card"
                             data-aos="fade-up" data-aos-delay="100">
                             <div class="image-container">
                                 <img src="admin/uploads/products/<?php echo $row['p_image1']; ?>"
