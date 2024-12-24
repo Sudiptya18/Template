@@ -101,8 +101,8 @@ if ($result && $result->num_rows > 0) {
                 <section class="job-details style-two pt-100 lg-pt-80 pb-130 lg-pb-80">
                     <div slot="container" class="container">
                         <div class="row">
-                            <div class="col-xxl-9 col-xl-10 m-auto">
-                                <div class="details-post-data ps-xxl-4 pe-xxl-4">
+                            <!-- <div class="col-xxl-9 col-xl-10 m-auto"> -->
+                                <!-- <div class="details-post-data ps-xxl-4 pe-xxl-4"> -->
                                     <ul
                                         class="job-meta-data-two d-flex flex-wrap justify-content-center justify-content-lg-between style-none">
                                         <div class="bg-wrapper bg-white text-center">
@@ -152,8 +152,8 @@ if ($result && $result->num_rows > 0) {
                                             ?>
                                         </ul>
                                     </div>
-                                </div>
-                            </div>
+                                <!-- </div> -->
+                            <!-- </div> -->
                         </div>
                     </div>
                 </section>

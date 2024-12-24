@@ -3130,7 +3130,7 @@ body {
 }
 
 .card {
-  width: 480px;
+  /* width: 480px; */
   height: auto; /* Adjust height as needed */
   display: flex;
   flex-direction: column;
@@ -3260,6 +3260,7 @@ body {
   padding: 15px 20px;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-direction: row;
 }
 
 .card:hover {

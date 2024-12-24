@@ -1,5 +1,5 @@
 <?php
-$body_class = 'index-page';
+$body_class = 'brand-details-page';
 include('header.php');
 include 'admin/connection.php';
 
@@ -99,7 +99,7 @@ $total_categories = $category_data['total_categories'] ?? 0;
         <div class="container">
             <div class="row">
                 <!-- Sidebar -->
-                <div class="col-lg-4 sidebar">
+                <div class="col-4 sidebar">
                     <div class="widgets-container">
                         <!-- Card 1: Brand Details -->
                         <div class="brand-card floating-card">
@@ -118,7 +118,7 @@ $total_categories = $category_data['total_categories'] ?? 0;
                         <!-- SKUs Card -->
                         <div class="card hover-card">
                             <div class="card-left">
-                                <i class="fa fa-box" style="font-size: 30px; color: #3498db;"></i>
+                                <i class="fa fa-box" style=" font-size: 30px; color: #3498db;"></i>
                                 <p>SKUs</p>
                             </div>
                             <div class="card-right">
@@ -129,7 +129,7 @@ $total_categories = $category_data['total_categories'] ?? 0;
                         <!-- Categories Card -->
                         <div class="card hover-card">
                             <div class="card-left">
-                                <i class="fa fa-tags" style="font-size: 30px; color: #2ecc71;"></i>
+                                <i class="fa fa-tags" style="float: left; font-size: 30px; color: #2ecc71;"></i>
                                 <p>Categories</p>
                             </div>
                             <div class="card-right">
@@ -141,7 +141,7 @@ $total_categories = $category_data['total_categories'] ?? 0;
                 </div>
 
                 <!-- Main Content -->
-                <div class="col-lg-8">
+                <div class="col-8">
                     <section id="brand-details" class="brand-details section">
                         <div class="content-image-container">
                             <img src="<?php echo $brand_data['image_1']; ?>" class="content-image" alt="Brand Image">
