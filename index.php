@@ -236,7 +236,7 @@ include 'admin/connection.php';
     <section id="tabs" class="tabs section light-background">
 
         <div class="container">
-            <h1 class="bside" data-aos="fade-up">Our Mission</h1>
+            <h1 class="" data-aos="fade-up">Our Mission</h1>
             <div class="row">
                 <div class="col-lg-4 js-custom-dots">
                     <a href="#" class="service-item link horizontal d-flex active" data-aos="fade-left"

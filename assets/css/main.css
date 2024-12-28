@@ -1729,6 +1729,8 @@ section,
 .blog-posts-2 .post-img {
   max-height: 440px;
   overflow: hidden;
+  align-content: center;
+  align-items: center;
 }
 
 .blog-posts-2 .title {
@@ -1864,7 +1866,7 @@ section,
   margin-bottom: 0;
   font-style: italic;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .blog-details .content blockquote:after {
@@ -2892,8 +2894,14 @@ blockquote {
 }
 
 blockquote p {
+  text-align: justify;
   margin: 0;
   font-size: 1.1rem;
+}
+
+blockquote h6 {
+  text-align: right;
+  
 }
 
 :root {
