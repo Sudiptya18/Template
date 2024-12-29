@@ -18,10 +18,6 @@ $brands_query = "SELECT br.*, GROUP_CONCAT(pr.categories_id) AS categories_ids
 $brands_result = mysqli_query($conn, $brands_query);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
     <style>
         .brand-card {
             cursor: pointer;
@@ -56,38 +52,26 @@ $brands_result = mysqli_query($conn, $brands_query);
         }
 
         #brands-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px; /* Adjust spacing as needed */
-}
-.portfolio-item {
-    flex: 0 0 calc(33.333% - 15px); /* 3 cards per row with spacing */
-    max-width: calc(33.333% - 15px);
-    box-sizing: border-box;
-}
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            /* Adjust spacing as needed */
+        }
 
-@media (max-width: 768px) {
-    .portfolio-item {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-}
-
-
-
-
+        .portfolio-item {
+            flex: 0 0 calc(33.333% - 15px);
+            /* 3 cards per row with spacing */
+            max-width: calc(33.333% - 15px);
+            box-sizing: border-box;
+        }
 
         @media (max-width: 768px) {
             .portfolio-item {
                 flex: 0 0 50%;
-                /* Two cards per row on smaller screens */
                 max-width: 50%;
             }
         }
     </style>
-</head>
-
-<body class="portfolio-page">
 
     <main class="main">
 
@@ -142,28 +126,7 @@ $brands_result = mysqli_query($conn, $brands_query);
     </main>
 
     <script>
-        // JavaScript for filtering brands without reloading the page
-        // function filterBrands(categoryId) {
-        //     const brandCards = document.querySelectorAll('.portfolio-item'); // Select all brand cards
 
-        //     // Loop through each card to check its category
-        //     brandCards.forEach(card => {
-        //         const categories = card.dataset.categories ? card.dataset.categories.split(',') : []; // Categories for the card
-
-        //         if (categoryId === 'all' || categories.includes(String(categoryId))) {
-        //             card.classList.remove('hidden');
-        //         } else {
-        //             card.classList.add('hidden');
-        //         }
-        //     });
-
-        //     // Trigger a reflow for isotope layout (or equivalent layout engine)
-        //     const container = document.getElementById('brands-container');
-        //     container.style.display = 'none'; // Force reflow
-        //     setTimeout(() => {
-        //         container.style.display = 'flex'; // Restore layout
-        //     }, 1);
-        // }
 
         function filterBrands(categoryId) {
             const brandCards = document.querySelectorAll('.portfolio-item'); // Select all brand cards
@@ -187,8 +150,4 @@ $brands_result = mysqli_query($conn, $brands_query);
             }, 0);
         }
     </script>
-
-</body>
 <?php include('footer.php'); ?>
-
-</html>

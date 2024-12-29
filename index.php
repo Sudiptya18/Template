@@ -167,7 +167,7 @@ include 'admin/connection.php';
 
                         <!-- Start Stats Item -->
                         <div class="col-4 counter" data-aos="fade-up" data-aos-delay="200">
-                            <span data-purecounter-separator="true" data-purecounter-start="0" data-purecounter-end="17"
+                            <span data-purecounter-separator="true" data-purecounter-start="0" data-purecounter-end="19"
                                 data-purecounter-duration="1" class="purecounter number"></span>
                             <span class="d-block">Brands</span>
                         </div>
@@ -176,7 +176,7 @@ include 'admin/connection.php';
                         <!-- Start Stats Item -->
                         <div class="col-4 counter" data-aos="fade-up" data-aos-delay="300">
                             <span data-purecounter-separator="true" data-purecounter-start="0"
-                                data-purecounter-end="180" data-purecounter-duration="1"
+                                data-purecounter-end="208" data-purecounter-duration="1"
                                 class="purecounter number"></span>
                             <span class="d-block">Products</span>
                         </div>

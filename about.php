@@ -64,7 +64,7 @@ $result = mysqli_query($conn, $query);
                             <!-- Start Stats Item -->
                             <div class="col-4 counter" data-aos="fade-up" data-aos-delay="200">
                                 <span data-purecounter-separator="true" data-purecounter-start="0"
-                                    data-purecounter-end="17" data-purecounter-duration="1"
+                                    data-purecounter-end="19" data-purecounter-duration="1"
                                     class="purecounter number"></span>
                                 <span class="d-block">Brands</span>
                             </div>
@@ -73,7 +73,7 @@ $result = mysqli_query($conn, $query);
                             <!-- Start Stats Item -->
                             <div class="col-4 counter" data-aos="fade-up" data-aos-delay="300">
                                 <span data-purecounter-separator="true" data-purecounter-start="0"
-                                    data-purecounter-end="180" data-purecounter-duration="1"
+                                    data-purecounter-end="208" data-purecounter-duration="1"
                                     class="purecounter number"></span>
                                 <span class="d-block">Products</span>
                             </div>
@@ -137,6 +137,7 @@ $result = mysqli_query($conn, $query);
         <section id="team" class="team section">
 
             <div class="site-section slider-team-wrap">
+            <h1 style="text-align:center; margin-top:2%;" >Meet Our Team</h1>
                 <div class="container">
 
                     <div class="slider-nav d-flex justify-content-end mb-3">
