@@ -29,6 +29,7 @@ if (isset($_POST['add_product'])) {
     $sku_name = mysqli_real_escape_string($conn, $_POST['sku_name']);
     $global_code = mysqli_real_escape_string($conn, $_POST['global_code']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $benefits = mysqli_real_escape_string($conn, $_POST['benefits']);
     $pack_size = mysqli_real_escape_string($conn, $_POST['pack_size']);
     $brand_id = mysqli_real_escape_string($conn, $_POST['brand_id']);
     $categories_id = mysqli_real_escape_string($conn, $_POST['categories_id']);
@@ -46,8 +47,8 @@ if (isset($_POST['add_product'])) {
     
     if (move_uploaded_file($_FILES["p_image1"]["tmp_name"], $target_file1) && move_uploaded_file($_FILES["p_image2"]["tmp_name"], $target_file2)) {
         // Insert data into the database
-        $sql = "INSERT INTO product (product_title, sku_name, global_code, description, pack_size, brand_id, categories_id, format_id, origin_id, p_image1, p_image2, active)
-                VALUES ('$product_title', '$sku_name', '$global_code', '$description', '$pack_size', '$brand_id', '$categories_id', '$format_id', '$origin_id', '$p_image1', '$p_image2', 1)";
+        $sql = "INSERT INTO product (product_title, sku_name, global_code, description, benefits, pack_size, brand_id, categories_id, format_id, origin_id, p_image1, p_image2, active)
+                VALUES ('$product_title', '$sku_name', '$global_code', '$description', '$benefits', '$pack_size', '$brand_id', '$categories_id', '$format_id', '$origin_id', '$p_image1', '$p_image2', 1)";
 
         if ($conn->query($sql) === TRUE) {
             // Display success modal
@@ -105,18 +106,22 @@ if (isset($_POST['add_product'])) {
                                             <textarea class="form-control" name="description" rows="3" required></textarea>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="inputProductImage1" class="form-label">Product Image 1</label>
-                                            <input id="image-upload1" type="file" name="p_image1" accept="image/*" required>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="inputProductImage2" class="form-label">Product Image 2</label>
-                                            <input id="image-upload2" type="file" name="p_image2" accept="image/*">
+                                            <label for="inputProductbenefits" class="form-label">Benefits</label>
+                                            <textarea class="form-control" name="benefits" rows="3" required></textarea>
                                         </div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="border border-3 p-4 rounded">
                                     <div class="row g-3">
+                                    <div class="col-12">
+                                            <label for="inputProductImage1" class="form-label">Product Image 1</label>
+                                            <input id="image-upload1" type="file" name="p_image1" accept="image/*" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="inputProductImage2" class="form-label">Product Image 2</label>
+                                            <input id="image-upload2" type="file" name="p_image2" accept="image/*">
+                                        </div>
                                         <div class="col-12">
                                             <label for="inputPacksize" class="form-label">Pack Size</label>
                                             <input type="text" class="form-control" name="pack_size" placeholder="Pack Size" required>

@@ -41,6 +41,7 @@ if (isset($_POST['update_product'])) {
     $sku_name = mysqli_real_escape_string($conn, $_POST['sku_name']);
     $global_code = mysqli_real_escape_string($conn, $_POST['global_code']);
     $description = mysqli_real_escape_string($conn, $_POST['description']);
+    $benefits = mysqli_real_escape_string($conn, $_POST['benefits']);
     $pack_size = mysqli_real_escape_string($conn, $_POST['pack_size']);
     $brand_id = mysqli_real_escape_string($conn, $_POST['brand_id']);
     $categories_id = mysqli_real_escape_string($conn, $_POST['categories_id']);
@@ -68,6 +69,7 @@ if (isset($_POST['update_product'])) {
                 sku_name = '$sku_name', 
                 global_code = '$global_code', 
                 description = '$description', 
+                benefits = '$benefits',
                 pack_size = '$pack_size', 
                 brand_id = '$brand_id', 
                 categories_id = '$categories_id', 
@@ -139,20 +141,24 @@ if (isset($_POST['product_id']) && isset($_POST['active'])) {
                                             <textarea class="form-control" name="description" rows="3" required><?php echo $row['description']; ?></textarea>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="inputProductImage1" class="form-label">Product Image 1</label>
-                                            <input id="image-upload1" type="file" name="p_image1" accept="image/*">
-                                            <img src="uploads/products/<?php echo $row['p_image1']; ?>" width="50" height="50" alt="Product Image 1">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="inputProductImage2" class="form-label">Product Image 2</label>
-                                            <input id="image-upload2" type="file" name="p_image2" accept="image/*">
-                                            <img src="uploads/products/<?php echo $row['p_image2']; ?>" width="50" height="50" alt="Product Image 2">
+                                            <label for="inputProductBenefits" class="form-label">Benefits</label>
+                                            <textarea class="form-control" name="benefits" rows="3" required><?php echo $row['benefits']; ?></textarea>
                                         </div>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="border border-3 p-4 rounded">
                                     <div class="row g-3">
+                                    <div class="col-12">
+                                            <label for="inputProductImage1" class="form-label">Product Image 1</label>
+                                            <input id="image-upload1" type="file" name="p_image1" accept="image/*">
+                                            <img src="uploads/products/<?php echo $row['p_image1']; ?>" width="50" height="50" alt="Product Image 1">
+                                        </div>
+                                        <div class="col-12">
+                                            <label for="inputProductImage2" class="form-label">Product Image 2</label>
+                                            <input id="image-upload2" type="file" name="p_image2" accept="image/*">
+                                            <img src="uploads/products/<?php echo $row['p_image2']; ?>" width="50" height="50" alt="Product Image 2">
+                                        </div>
                                         <div class="col-12">
                                             <label for="inputPacksize" class="form-label">Pack Size</label>
                                             <input type="text" class="form-control" name="pack_size" value="<?php echo $row['pack_size']; ?>" required>

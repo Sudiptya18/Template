@@ -1,9 +1,8 @@
 <?php
+$body_class = 'blog-details-page';
 include('header.php');
 // include 'admin/connection.php';
 ?>
-
-<body class="blog-details-page">
 
   <main class="main">
 

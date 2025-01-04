@@ -5,11 +5,12 @@
                 <div class="widget">
                     <h3 class="widget-heading">About Us</h3>
                     <p class="mb-4">
-                        There live the blind texts. Separated they live in Bookmarksgrove
-                        right at the coast of the Semantics, a large language ocean.
+                        Artisan Business Network is an import and distribution company that specializes in sourcing and
+                        delivering high-quality products from overseas suppliers to businesses and consumers in the
+                        local market.
                     </p>
                     <p class="mb-0">
-                        <a href="#" class="btn-learn-more">Learn more</a>
+                        <a href="about.php" class="btn-learn-more">Show more</a>
                     </p>
                 </div>
             </div>
@@ -22,9 +23,9 @@
                         <li><a href="#">Find Buyers</a></li>
                     </ul>
                     <ul class="list-unstyled float-start">
-                        <li><a href="#">Overview</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
+                        <li><a href="contact.php">Overview</a></li>
+                        <li><a href="about.php">About Us</a></li>
+                        <li><a href="services.php">Services</a></li>
                     </ul>
                 </div>
             </div>
@@ -33,13 +34,12 @@
                     <h3 class="widget-heading">Recent Posts</h3>
                     <ul class="list-unstyled footer-blog-entry">
                         <li>
-                            <span class="d-block date">May 3, 2020</span>
-                            <a href="#">There live the Blind Texts</a>
+                            <a href="blog-details_1.php">UNILEVER INTERNATIONAL APPOINTS ARTISAN</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <span class="d-block date">May 3, 2020</span>
                             <a href="#">Separated they live in Bookmarksgrove right</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                     </ul>
                 </div>
 
-                <div class="widget">
+                <!-- <div class="widget">
                     <div class="footer-subscribe">
                         <h3 class="widget-heading">Subscribe</h3>
                         <form action="forms/newsletter.php" method="post" class="php-email-form">
@@ -83,13 +83,14 @@
                             </div>
                         </form>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
         <div class="copyright d-flex flex-column flex-md-row align-items-center justify-content-md-between">
             <p>© <span>Copyright</span> <strong class="px-1 sitename">Artisan business Network Bangladesh</strong>
-                <span>All Rights Reserved.</span></p>
+                <span>All Rights Reserved.</span>
+            </p>
             <div class="credits">
                 Developed by Artisan IT
             </div>

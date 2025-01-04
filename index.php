@@ -98,7 +98,7 @@ include 'admin/connection.php';
                             <i class="bi bi-bullseye"></i>
                         </div>
                         <div>
-                            <h3>No Copy Products</h3>
+                            <h3>Authentic Products</h3>
                             <p>All Products are imported from unilever global brands from various countries.</p>
                         </div>
                     </div>

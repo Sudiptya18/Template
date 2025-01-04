@@ -336,9 +336,7 @@ $products_result2 = mysqli_query($conn, $products_query2);
                     $("#list-btn").html(data.prod);
                     $(".prod_count").html(data.total_prod)
                     // $("#grid-btn").html(response);
-                    $.each(data.total_page, function(key, val) {
-                        console.log(key + "" + value)
-                    });
+
                 }
             });
         });
@@ -382,7 +380,6 @@ $products_result2 = mysqli_query($conn, $products_query2);
             var active = '';
             // Loop to create pagination links based on total pages
             for (var i = 1; i <= total_pages; i++) {
-                console.log(current+" is current & i ="+i)
                 var act = (i==current)?'active':'';
                 
                 output += '<li><a href="javascript:void(0);" class="page-link ' + act + '" data-page="' + i +
@@ -403,12 +400,14 @@ $products_result2 = mysqli_query($conn, $products_query2);
         }
 
         function loadPage(page_id) {
+           
             // Implement logic to load products based on the selected page_id
             var brand = get_filter_text('brand');
             var category = get_filter_text('category');
             var format = get_filter_text('format');
             var origin = $('.origin-dropdown').val();
 
+                
             $.ajax({
                 url: "product-api2.php",
                 method: 'POST',
@@ -431,6 +430,7 @@ $products_result2 = mysqli_query($conn, $products_query2);
 
 
         function fetch_product() {
+       
             var brand = get_filter_text('brand');
             var category = get_filter_text('category');
             var format = get_filter_text('format');

@@ -76,11 +76,6 @@ $total_categories = $category_data['total_categories'] ?? 0;
 
 ?>
 
-
-<!DOCTYPE html>
-<html lang="en">
-
-<body class="brand-details-page">
     <main class="main">
         <!-- Page Title -->
         <div class="page-title light-background">
@@ -198,7 +193,6 @@ $total_categories = $category_data['total_categories'] ?? 0;
             </div>
         </div>
     </main>
-</body>
 
 <!-- Optional: Add custom CSS for transparency -->
 <style>
@@ -226,7 +220,5 @@ $total_categories = $category_data['total_categories'] ?? 0;
     color: white;
 }
 </style>
-
-</html>
 
 <?php include('footer.php'); ?>

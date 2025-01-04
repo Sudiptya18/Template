@@ -1,21 +1,11 @@
-/**
-* Template Name: Active
-* Template URL: https://bootstrapmade.com/active-bootstrap-website-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Roboto", sans-serif;
+  /* --heading-font: "Roboto", sans-serif; */
+  --heading-font: "Times New Roman", Times, serif;
   --nav-font: "Lato", sans-serif;
 }
 
@@ -2471,6 +2461,7 @@ section,
 }
 
 .about .slide-content h2 {
+  font-weight: bold;
   font-size: 1.8em;
   margin-bottom: 10px;
 }
@@ -2562,6 +2553,7 @@ section,
 }
 
 .services .services-item h3 {
+  font-weight: bold;
   font-size: 1.5em;
   margin-bottom: 10px;
 }
@@ -2626,7 +2618,7 @@ section,
 }
 
 .brand-content h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   padding: 6px 0;
   background-color: rgba(255, 255, 255, 0.85);
@@ -2829,7 +2821,7 @@ section,
 
 .brand-card h4,
 .brand-card h5 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-top: 15px;
   color: #333;
@@ -3189,7 +3181,7 @@ body {
 
 .pe {
   float: left;
-  width: calc(100% / 3);
+  /* width: calc(100% / 3); */
   overflow: hidden;
   padding: 40px 0;
   transition: 0.4s;
@@ -3206,11 +3198,14 @@ body {
 }
 
 .p-name {
+  padding-top: 10%;
+  text-align: center;
   margin: 5px;
   text-transform: uppercase;
 }
 
 .p-des {
+  text-align: center;
   font-style: italic;
   color: #14c811;
 }

@@ -1,5 +1,5 @@
 <?php
-$body_class = 'index-page';
+$body_class = 'about-page';
 include('header.php');
 // Connect to the database
 include 'admin/connection.php';
@@ -8,8 +8,6 @@ include 'admin/connection.php';
 $query = "SELECT * FROM team";
 $result = mysqli_query($conn, $query);
 ?>
-
-<body class="about-page">
 
     <main class="main">
 
@@ -203,7 +201,5 @@ $result = mysqli_query($conn, $query);
         </section><!-- /Team Section -->
 
     </main>
-
-</body>
 
 <?php include('footer.php'); ?>

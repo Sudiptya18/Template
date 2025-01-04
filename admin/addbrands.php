@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $brand_name = mysqli_real_escape_string($conn, $_POST['brand_name']);
     
     // File upload setup
-    $target_dir = "admin/uploads/brands/";
+    $target_dir = "uploads/brands/";
     $target_file = $target_dir . basename($_FILES["brand_image"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));

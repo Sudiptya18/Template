@@ -14,7 +14,7 @@ $categories_result = mysqli_query($conn, $categories_query);
 // Fetch brands with associated categories
 $brands_query = "SELECT br.*, GROUP_CONCAT(DISTINCT pr.categories_id) AS categories_ids 
                  FROM brands br
-                 LEFT JOIN product pr ON br.brand_id = pr.brand_id
+                 INNER JOIN product pr ON br.brand_id = pr.brand_id
                  GROUP BY br.brand_id
                  ORDER BY br.brand_name ASC";
 $brands_result = mysqli_query($conn, $brands_query);
@@ -26,11 +26,11 @@ $brands_result = mysqli_query($conn, $brands_query);
     <!-- Page Title -->
     <div class="page-title light-background">
         <div class="container">
-            <h1>Portfolio</h1>
+            <h1>Brands</h1>
             <nav class="breadcrumbs">
                 <ol>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="current">Portfolio</li>
+                    <li><a href="index.php">Home</a></li>
+                    <li class="current">Brands</li>
                 </ol>
             </nav>
         </div>
@@ -97,8 +97,6 @@ $brands_result = mysqli_query($conn, $brands_query);
 
 
 <script>
-
-
 function filterBrand(categoryId) {
     const brandCards = document.querySelectorAll('.portfolio-item'); // Select all brand cards
 

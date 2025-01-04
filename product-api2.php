@@ -1,4 +1,5 @@
 <?php
+
 include 'admin/connection.php';
 
 $per_page = 10;

@@ -20698,7 +20698,7 @@ iframe {
 }
 .inner-banner-one {
   background: #244034;
-  padding: 150px 0 115px;
+  /* padding: 150px 0 115px; */
   z-index: 9;
 }
 .inner-banner-one h1 {
@@ -29247,7 +29247,7 @@ body.compensate-for-scrollbar {
     padding: 10px 22px;
   }
   .inner-banner-one {
-    padding: 120px 0 70px;
+    padding: 10px 0 70px;
   }
   .filter-area-tab.offcanvas {
     position: fixed;

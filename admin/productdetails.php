@@ -26,7 +26,7 @@ include('./connection.php');
 $product_id = isset($_GET['product_id']) ? $_GET['product_id'] : 0;
 
 // Fetch product details from the database, joining the relevant tables
-$sql = "SELECT p.product_id, p.product_title, p.sku_name, p.global_code, p.pack_size, p.description, p.p_image1, p.p_image2, 
+$sql = "SELECT p.product_id, p.product_title, p.sku_name, p.global_code, p.pack_size, p.description, p.benefits, p.p_image1, p.p_image2, 
                b.brand_name, b.b_image AS brand_logo, 
                c.category_name, 
                f.format_name, 
@@ -129,6 +129,13 @@ if (!$product) {
                                     <div class="card-body">
                                         <h5>Product Description </h5>
                                         <p><?php echo $product['description']; ?></p>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="card-body">
+                                        <h5>Product Benefits </h5>
+                                        <p><?php echo $product['benefits']; ?></p>
                                         <hr>
                                     </div>
                                 </div>
