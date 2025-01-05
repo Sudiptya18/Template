@@ -157,6 +157,10 @@ $conn->close();
 						</li>
 						<li> <a href="addbrands.php"><i class="bx bx-right-arrow-alt"></i>Add New Brand</a>
 						</li>
+						<li> <a href="addbranddetails.php"><i class="bx bx-right-arrow-alt"></i>Add Brand Details</a>
+						</li>
+						<li> <a href="updatebranddetails.php"><i class="bx bx-right-arrow-alt"></i>Update Brand Details</a>
+						</li>
 					</ul>
 				</li>
 				<li>

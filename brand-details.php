@@ -75,92 +75,92 @@ $category_data = mysqli_fetch_assoc($category_result);
 $total_categories = $category_data['total_categories'] ?? 0;
 
 ?>
+<link href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" rel="stylesheet" />
 
-    <main class="main">
-        <!-- Page Title -->
-        <div class="page-title light-background">
-            <div class="container">
-                <h1><?php echo $brand_data['brand_name']; ?></h1>
-                <nav class="breadcrumbs">
-                    <ol>
-                        <li><a href="index.php">Home</a></li>
-                        <li class="current">Brand Details (<?php echo $brand_data['brand_name']; ?>)</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <!-- End Page Title -->
-
+<main class="main">
+    <!-- Page Title -->
+    <div class="page-title light-background">
         <div class="container">
-            <div class="row">
-                <!-- Sidebar -->
-                <div class="col-4 sidebar">
-                    <div class="widgets-container">
-                        <!-- Card 1: Brand Details -->
-                        <div class="brand-card floating-card">
-                            <img src="<?php echo $brand_data['b_image']; ?>" class="brand-details-image"
-                                alt="<?php echo $brand_data['brand_name']; ?>">
-                            <h4><?php echo $brand_data['brand_name']; ?></h4>
-                            <p><?php echo $brand_data['details_1']; ?></p>
-                        </div>
+            <h1><?php echo $brand_data['brand_name']; ?></h1>
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a href="index.php">Home</a></li>
+                    <li class="current">Brand Details (<?php echo $brand_data['brand_name']; ?>)</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- End Page Title -->
 
-                        <!-- Card 2: Additional Info (optional content) -->
-                        <div class="brand-card floating-card">
-                            <p><?php echo $brand_data['details_6']; ?></p>
-                        </div>
-                    </div>
-                    <div class="e-con-inner">
-                        <!-- SKUs Card -->
-                        <div class="card hover-card">
-                            <div class="card-left">
-                                <i class="fa fa-box" style=" font-size: 30px; color: #3498db;"></i>
-                                <p>SKUs</p>
-                            </div>
-                            <div class="card-right">
-                                <h3><?= htmlspecialchars($total_skus) ?></h3>
-                            </div>
-                        </div>
-
-                        <!-- Categories Card -->
-                        <div class="card hover-card">
-                            <div class="card-left">
-                                <i class="fa fa-tags" style="float: left; font-size: 30px; color: #2ecc71;"></i>
-                                <p>Categories</p>
-                            </div>
-                            <div class="card-right">
-                                <h3><?= htmlspecialchars($total_categories) ?></h3>
-                            </div>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-4 sidebar">
+                <div class="widgets-container">
+                    <!-- Card 1: Brand Details -->
+                    <div class="brand-card floating-card">
+                        <img src="<?php echo $brand_data['b_image']; ?>" class="brand-details-image"
+                            alt="<?php echo $brand_data['brand_name']; ?>">
+                        <h4><?php echo $brand_data['brand_name']; ?></h4>
+                        <p><?php echo $brand_data['details_1']; ?></p>
                     </div>
 
+                    <!-- Card 2: Additional Info (optional content) -->
+                    <div class="brand-card floating-card">
+                        <p><?php echo $brand_data['details_6']; ?></p>
+                    </div>
+                </div>
+                <div class="e-con-inner">
+                    <!-- SKUs Card -->
+                    <div class="card hover-card">
+                        <div class="card-left">
+                            <i class="fa fa-box" style=" font-size: 30px; color: #3498db;"></i>
+                            <p>SKUs</p>
+                        </div>
+                        <div class="card-right">
+                            <h3><?= htmlspecialchars($total_skus) ?></h3>
+                        </div>
+                    </div>
+
+                    <!-- Categories Card -->
+                    <div class="card hover-card">
+                        <div class="card-left">
+                            <i class="fa fa-tags" style="float: left; font-size: 30px; color: #2ecc71;"></i>
+                            <p>Categories</p>
+                        </div>
+                        <div class="card-right">
+                            <h3><?= htmlspecialchars($total_categories) ?></h3>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Main Content -->
-                <div class="col-8">
-                    <section id="brand-details" class="brand-details section">
-                        <div class="content-image-container">
-                            <img src="<?php echo $brand_data['image_1']; ?>" class="content-image" alt="Brand Image">
-                        </div>
-                        <div class="content-text">
-                            <blockquote>
-                                <p><?php echo $brand_data['details_2']; ?></p>
-                            </blockquote>
-                            <p><?php echo $brand_data['details_3']; ?></p>
-                            <p><?php echo $brand_data['details_4']; ?></p>
+            </div>
 
-                        </div>
-                    </section>
-                </div>
-
-                <!-- Fixed Background Section -->
-                <div class="col-lg-12 fixed-background-section">
-                    <div class="content-overlay">
-                        <h7><?php echo $brand_data['details_5']; ?></h7>
+            <!-- Main Content -->
+            <div class="col-8">
+                <section id="brand-details" class="brand-details section">
+                    <div class="content-image-container">
+                        <img src="<?php echo $brand_data['image_1']; ?>" class="content-image" alt="Brand Image">
                     </div>
-                    <h4 class="paddi"> Available SKU under this Brand </h4>
+                    <div class="content-text">
+                        <blockquote>
+                            <p><?php echo $brand_data['details_2']; ?></p>
+                        </blockquote>
+                        <p><?php echo $brand_data['details_3']; ?></p>
+                        <p><?php echo $brand_data['details_4']; ?></p>
 
-                    <!-- Transparent Table -->
-                    <table class="table table-bordered table-transparent">
+                    </div>
+                </section>
+            </div>
+
+            <!-- Fixed Background Section -->
+            <div class="col-lg-12">
+                <div class="content-overlay">
+                    <h7><?php echo $brand_data['details_5']; ?></h7>
+                </div>
+                <h4 class="paddi"> Available SKU under this Brand </h4>
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
                                 <th>Global Code</th>
@@ -169,56 +169,80 @@ $total_categories = $category_data['total_categories'] ?? 0;
                                 <th>Category</th>
                                 <th>Format</th>
                                 <th>Origin</th>
-                                <th>Image</th>
+                                <th>Product Image</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($products as $product): ?>
-                            <tr>
-                                <td><?php echo $product['global_code']; ?></td>
-                                <td><?php echo $product['sku_name']; ?></td>
-                                <td><?php echo $product['pack_size']; ?></td>
-                                <td><?php echo $product['category_name']; ?></td>
-                                <td><?php echo $product['format_name']; ?></td>
-                                <td><?php echo $product['origin_name']; ?></td>
-                                <td><img src="admin/uploads/products/<?php echo $product['p_image1']; ?>"
-                                        alt="Product Image" style="width: 50px; height: 50px;"></td>
-                            </tr>
+                                <tr>
+                                    <td><?php echo $product['global_code']; ?></td>
+                                    <td><?php echo $product['sku_name']; ?></td>
+                                    <td><?php echo $product['pack_size']; ?></td>
+                                    <td><?php echo $product['category_name']; ?></td>
+                                    <td><?php echo $product['format_name']; ?></td>
+                                    <td><?php echo $product['origin_name']; ?></td>
+                                    <td><img src="admin/uploads/products/<?php echo $product['p_image1']; ?>" width="100"
+                                            height="100"></td>
+                                </tr>
                             <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
-
-
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
 <!-- Optional: Add custom CSS for transparency -->
 <style>
-.table-transparent {
-    background-color: rgba(255, 255, 255, 0.8);
-    /* Transparent white */
-    border: 1px solid #ddd;
-    color: #333;
-}
+    .table-transparent {
+        background-color: rgba(255, 255, 255, 0.8);
+        /* Transparent white */
+        border: 1px solid #ddd;
+        color: #333;
+    }
 
-.table-transparent th,
-.table-transparent td {
-    text-align: center;
-    padding: 10px;
-}
+    .table-transparent th,
+    .table-transparent td {
+        text-align: center;
+        padding: 10px;
+    }
 
-.table-transparent img {
-    max-width: 50px;
-    max-height: 50px;
-}
+    .table-transparent img {
+        max-width: 50px;
+        max-height: 50px;
+    }
 
-.paddi {
-    padding: 20px;
-    text-align: center;
-    color: white;
-}
+    .paddi {
+        padding: 20px;
+        text-align: center;
+        color: white;
+    }
+
+    .table th,
+    .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .dataTables_wrapper .dataTables_filter {
+        float: right;
+    }
+
+    .gap {
+        padding-bottom: 20px;
+    }
 </style>
+
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<!-- Initialize DataTables -->
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "paging": true, // Enable pagination
+            "searching": true, // Enable search
+        });
+    });
+</script>
 
 <?php include('footer.php'); ?>
