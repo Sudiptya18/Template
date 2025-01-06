@@ -1819,7 +1819,7 @@ section,
 }
 
 .blog-details .post-img {
-  margin: -30px -30px 20px -30px;
+  justify-self: center;
   overflow: hidden;
 }
 
@@ -2892,6 +2892,7 @@ blockquote p {
 }
 
 blockquote h6 {
+  font-weight: bold;
   text-align: right;
   
 }
@@ -3371,7 +3372,7 @@ body {
 
 /* General Styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: none;
   background-color: #f9f9f9;
 }
 

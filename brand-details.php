@@ -99,7 +99,7 @@ $total_categories = $category_data['total_categories'] ?? 0;
                 <div class="widgets-container">
                     <!-- Card 1: Brand Details -->
                     <div class="brand-card floating-card">
-                        <img src="<?php echo $brand_data['b_image']; ?>" class="brand-details-image"
+                        <img src="admin/<?php echo $brand_data['b_image']; ?>" class="brand-details-image"
                             alt="<?php echo $brand_data['brand_name']; ?>">
                         <h4><?php echo $brand_data['brand_name']; ?></h4>
                         <p><?php echo $brand_data['details_1']; ?></p>
@@ -214,9 +214,9 @@ $total_categories = $category_data['total_categories'] ?? 0;
     }
 
     .paddi {
+        color: #4caf50;
         padding: 20px;
         text-align: center;
-        color: white;
     }
 
     .table th,

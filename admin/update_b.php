@@ -38,7 +38,7 @@ if (isset($_POST['update_brand'])) {
 
     if ($b_image != '') {
         // Image uploaded
-        $target_dir = "admin/uploads/brands/";
+        $target_dir = "uploads/brands/";
         $target_file = $target_dir . basename($_FILES["b_image"]["name"]);
         move_uploaded_file($_FILES["b_image"]["tmp_name"], $target_file);
 

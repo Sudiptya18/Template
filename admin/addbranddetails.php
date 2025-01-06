@@ -55,8 +55,8 @@ if (isset($_POST['add_brand_details'])) {
              VALUES ('$brand_id', '$details_1', '$details_2', '$details_3', '$details_4', '$details_5', '$details_6')";
 
     // Insert data into `brand_details_image` table
-    $sql2 = "INSERT INTO brand_details_image (brand_id, image_1, image_2, image_3, image_4, image_5) 
-             VALUES ('$brand_id', '{$images[1]}', '{$images[2]}', '{$images[3]}', '{$images[4]}', '{$images[5]}')";
+    $sql2 = "INSERT INTO brand_details_image (brand_id, image_1) 
+             VALUES ('$brand_id', '{$images[1]}')";
 
     if ($conn->query($sql1) === TRUE && $conn->query($sql2) === TRUE) {
         echo "<script>
@@ -65,7 +65,7 @@ if (isset($_POST['add_brand_details'])) {
             successModal.show();
             setTimeout(function() {
                 successModal.hide();
-                window.location.href = 'allbrands.php';
+                window.location.href = 'brands.php';
             }, 1000);
         });
         </script>";
@@ -143,10 +143,8 @@ if (isset($_POST['add_brand_details'])) {
                                             </div>
                                             <div class="mb-3">
                                                 <label for="brandImages" class="form-label">Brand Details Images</label>
-                                                <?php for ($i = 1; $i <= 5; $i++): ?>
                                                     <input type="file" class="form-control mb-2" name="image_<?= $i ?>"
                                                         accept="image/*">
-                                                <?php endfor; ?>
                                             </div>
                                             <div class="d-grid">
                                                 <button type="submit" name="add_brand_details"

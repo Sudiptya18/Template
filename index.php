@@ -216,7 +216,7 @@ include 'admin/connection.php';
                         <a href="brand-details.php?brand_id=<?php echo $row['brand_id']; ?>" class="brand-card-link">
                             <div class="brand-card" data-aos="fade-up" data-aos-delay="100">
                                 <div class="brand-image">
-                                    <img src="<?php echo $row['b_image']; ?>" alt="<?php echo $row['brand_name']; ?>"
+                                    <img src="admin/<?php echo $row['b_image']; ?>" alt="<?php echo $row['brand_name']; ?>"
                                         class="img-fluid rounded">
                                 </div>
                                 <div class="brand-content">
@@ -362,7 +362,7 @@ include 'admin/connection.php';
             <div class="row gy-4 justify-content-center">
 
                 <?php
-                $query = "SELECT * FROM product LIMIT 15"; // Fetch 15 products
+                $query = "SELECT * FROM product ORDER BY RAND() LIMIT 15;"; // Fetch 15 products
                 $result = $conn->query($query);
 
                 while ($row = $result->fetch_assoc()):

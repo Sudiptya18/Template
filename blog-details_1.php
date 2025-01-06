@@ -129,13 +129,14 @@ include('header.php');
 
             <p>
               News links:
-              <a href="https://www.prothomalo.com" target="_blank">Prothom Alo</a> |
+              <a href="https://en.prothomalo.com/corporate/9ebfoqkygk" target="_blank">Prothom Alo</a> |
               <a href="https://www.jagonews24.com" target="_blank">Jago News 24</a> |
-              <a href="https://www.bdnews24.com" target="_blank">BDNews 24</a> |
-              <a href="https://www.deshrupantar.com" target="_blank">Desh Rupantar</a> |
-              <a href="https://www.ajkerpatrika.com" target="_blank">Ajker Patrika</a> |
-              <a href="https://www.thefinancialexpress.com.bd" target="_blank">The Financial Express</a> |
-              <a href="https://www.ittefaq.com.bd" target="_blank">The Daily Ittefaq</a>
+              <a href="https://bangla.bdnews24.com/business/99kpt5duw0" target="_blank">BDNews 24</a> |
+              <a href="https://www.deshrupantor.com/business/2023/08/02/443067" target="_blank">Desh Rupantar</a> |
+              <a href="https://www.ajkerpatrika.com/285515" target="_blank">Ajker Patrika</a> |
+              <a href="https://today.thefinancialexpress.com.bd/stock-corporate/artisan-becomes-importer-master-distributor-of-unilever-intl-1691084981" target="_blank">The Financial Express</a> |
+              <a href="https://www.ittefaq.com.bd/654401" target="_blank">The Daily Ittefaq</a> | 
+              <a href="https://www.jagonews24.com/m/economy/news/873789" target="_blank">Jago News</a>
             </p>
           </article>
 

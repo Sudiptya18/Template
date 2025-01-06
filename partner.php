@@ -1,6 +1,6 @@
 <?php
 $body_class = 'index-page';
-include('header.php'); 
+include('header.php');
 // Connect to the database
 include 'admin/connection.php';
 
@@ -30,8 +30,12 @@ if ($result2->num_rows > 0) {
     $designation2 = htmlspecialchars($row2['designation']);
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
+
+<style>
+    .d-flex {
+        justify-content: space-between;
+    }
+</style>
 
 <body class="blog-details-page">
 
@@ -57,13 +61,13 @@ if ($result2->num_rows > 0) {
                     <div class="widgets-container">
                         <!-- Uniliver Picture -->
                         <div class="blog-author-widget widget-item">
-                            <div class="d-flex flex-column align-items-center">
+                            <div class="d-flex align-items-center">
+                                <img src="assets/img/Unilever_International Logo.png">
                                 <img src="assets/img/unilever.png">
                             </div>
                         </div>
                         <!--/Uniliver Picture -->
                     </div>
-
                 </div>
 
                 <div class="col-lg-12">

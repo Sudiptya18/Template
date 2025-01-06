@@ -73,7 +73,7 @@ $brands_result = mysqli_query($conn, $brands_query);
                                     data-categories="0,<?= $brand['categories_ids'] ?>">
                                     <div class="brand-card"
                                         onclick="window.location.href='brand-details.php?brand_id=<?= $brand['brand_id'] ?>'">
-                                        <img src="<?= $brand['b_image'] ?>" class="brand-logo"
+                                        <img src="admin/<?= $brand['b_image'] ?>" class="brand-logo"
                                             alt="<?= $brand['brand_name'] ?>">
                                         <h4><?= $brand['brand_name'] ?></h4>
                                     </div>
