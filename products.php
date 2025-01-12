@@ -191,7 +191,7 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                                             alt="<?php echo $product['brand_name']; ?>"
                                                             class="lazy-img m-auto" /></a>
                                                     <div class="split-box1">
-                                                        <a href="brand-details.php?id=<?php echo $brand['brand_id']; ?>"
+                                                        <a href="brand-details.php?brand_id=<?php echo $brand['brand_id']; ?>"
                                                             class="job-duration fw-500"><?php echo $product['brand_name']; ?></a>
                                                         <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
                                                             class="title fw-500 tran3s"><?php echo $product['product_title']; ?></a>
@@ -208,10 +208,14 @@ $products_result2 = mysqli_query($conn, $products_query2);
                                                     <br> <?php echo $product['format_name']; ?>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3 col-sm-6">
+                                            <div class="col-md-3 col-sm-6" style="display:flex; flex-direction: column; align-items: center; justify-content: center;">
                                                 <div class="job-btn">
-                                                    <a href="product-details.php?id=<?php echo $product['product_id']; ?>"
+                                                    <a href="product-details.php?id=$product['product_id'];"
                                                         class="btn-one tran3s">View Details</a>
+                                                </div>
+                                                <div class="job-btn" style="padding-top: 5%;">
+                                                    <a href="pdfgenerate.php?id=<?php echo $product['product_id']; ?>" target="_blank"
+                                                        class="btn-one tran3s"> Download</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -380,8 +384,8 @@ $products_result2 = mysqli_query($conn, $products_query2);
             var active = '';
             // Loop to create pagination links based on total pages
             for (var i = 1; i <= total_pages; i++) {
-                var act = (i==current)?'active':'';
-                
+                var act = (i == current) ? 'active' : '';
+
                 output += '<li><a href="javascript:void(0);" class="page-link ' + act + '" data-page="' + i +
                     '">' + i +
                     '</a></li>';
@@ -400,14 +404,14 @@ $products_result2 = mysqli_query($conn, $products_query2);
         }
 
         function loadPage(page_id) {
-           
+
             // Implement logic to load products based on the selected page_id
             var brand = get_filter_text('brand');
             var category = get_filter_text('category');
             var format = get_filter_text('format');
             var origin = $('.origin-dropdown').val();
 
-                
+
             $.ajax({
                 url: "product-api2.php",
                 method: 'POST',
@@ -423,14 +427,14 @@ $products_result2 = mysqli_query($conn, $products_query2);
                     var data = JSON.parse(response);
                     $("#list-btn").html(data.prod); // Update product list
                     $(".prod_count").html(data.total_prod); // Update product count
-                    paginate(data.total_page,data.page_no); // Update pagination
+                    paginate(data.total_page, data.page_no); // Update pagination
                 }
             });
         }
 
 
         function fetch_product() {
-       
+
             var brand = get_filter_text('brand');
             var category = get_filter_text('category');
             var format = get_filter_text('format');

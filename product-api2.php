@@ -55,7 +55,7 @@ if (isset($_POST['action'])) {
                                                                 alt=' $row[brand_name]'
                                                                 class='lazy-img m-auto' /></a>
                                                         <div class='split-box1'>
-                                                            <a href='brand-details.php?id=$row[brand_id]'
+                                                            <a href='brand-details.php?brand_id=$row[brand_id]'
                                                                 class='job-duration fw-500'>$row[brand_name]</a>
                                                             <a href='product-details.php?id=$row[product_id]'
                                                                 class='title fw-500 tran3s'>$row[product_title]</a>
@@ -72,12 +72,16 @@ if (isset($_POST['action'])) {
                                                         <br> $row[format_name]
                                                     </div>
                                                 </div>
-                                                <div class='col-md-3 col-sm-6'>
-                                                    <div class='job-btn'>
-                                                        <a href='product-details.php?id=$row[product_id]'
-                                                            class='btn-one tran3s'>View Details</a>
-                                                    </div>
+                                                <div class='col-md-3 col-sm-6' style='display:flex; flex-direction: column; align-items: center; justify-content: center;'>
+                                                <div class='job-btn'>
+                                                    <a href='product-details.php?id=$row[product_id];'
+                                                        class='btn-one tran3s'>View Details</a>
                                                 </div>
+                                                <div class='job-btn' style='padding-top: 5%;'>
+                                                    <a href='pdfgenerate.php?id=$row[product_id]'
+                                                        class='btn-one tran3s' target='_blank'> Download</a>
+                                                </div>
+                                            </div>
                                             </div>
                                         </div>";
         }
